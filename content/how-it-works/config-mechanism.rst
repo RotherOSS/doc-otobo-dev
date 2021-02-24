@@ -89,7 +89,7 @@ The configuration items are written as ``Setting`` elements with a ``Description
 ``Invisible``
    If set to 1, the config setting is not shown in the GUI.
 
-``Readonly``
+``ReadOnly``
    If set to 1, the config setting cannot be changed in the GUI.
 
 ``UserModificationPossible``
