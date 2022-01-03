@@ -24,15 +24,21 @@ Directories
 +===================================+===================================+
 | bin/                              | command line tools                |
 +-----------------------------------+-----------------------------------+
-| bin/cgi-bin/                      | web handle                        |
+| bin/cgi-bin/                      | CGI wrapper of PSGI application   |
 +-----------------------------------+-----------------------------------+
-| bin/fcgi-bin/                     | fast CGI web handle               |
+| bin/devel/                        | helpers for development           |
 +-----------------------------------+-----------------------------------+
-| Kernel                            | application code base             |
+| bin/docker/                       | for Docker based installations    |
++-----------------------------------+-----------------------------------+
+| bin/fcgi-bin/                     | obsolete                          |
++-----------------------------------+-----------------------------------+
+| bin/psgi-bin/                     | the PSGI application              |
++-----------------------------------+-----------------------------------+
+| Kernel/                           | application code base             |
 +-----------------------------------+-----------------------------------+
 | Kernel/Config/                    | configuration files               |
 +-----------------------------------+-----------------------------------+
-| Kernel/Config/Files               | configuration files               |
+| Kernel/Config/Files/              | configuration files               |
 +-----------------------------------+-----------------------------------+
 | Kernel/GenericInterface/          | the Generic Interface API         |
 +-----------------------------------+-----------------------------------+
@@ -48,11 +54,11 @@ Directories
 | Kernel/GenericInterface/Transport | transport modules for Generic     |
 | /                                 | Interface, e.g. "HTTP SOAP"       |
 +-----------------------------------+-----------------------------------+
-| Kernel/Language                   | language translation files        |
+| Kernel/Language/                  | language translation files        |
 +-----------------------------------+-----------------------------------+
 | Kernel/Scheduler/                 | Scheduler files                   |
 +-----------------------------------+-----------------------------------+
-| Kernel/Scheduler/TaskHandler      | handler modules for scheduler     |
+| Kernel/Scheduler/TaskHandler/     | handler modules for scheduler     |
 |                                   | tasks, e.g. GenericInterface      |
 +-----------------------------------+-----------------------------------+
 | Kernel/System/                    | core modules, e.g. Log, Ticket    |
@@ -60,7 +66,7 @@ Directories
 | Kernel/Modules/                   | front end modules, e.g.           |
 |                                   | QueueView                         |
 +-----------------------------------+-----------------------------------+
-| Kernel/Output/HTML/               | html templates                    |
+| Kernel/Output/HTML/               | HTML templates                    |
 +-----------------------------------+-----------------------------------+
 | var/                              | variable data                     |
 +-----------------------------------+-----------------------------------+
@@ -86,14 +92,19 @@ Directories
 +-----------------------------------+-----------------------------------+
 
 
-Files
------
+File Extensions
+---------------
+
+Here are some commonly used file extensions:
 
 - .pl = Perl
 - .pm = Perl Module
 - .tt = Template::Toolkit template files
+- .js = JavaScript files
 - .dist = Default templates of files
 - .yaml or .yml = YAML files, used for Web Service configuration
+- .xml = XML files
+- .json = JSON files
 
 
 Core Modules
@@ -214,4 +225,4 @@ Database
 
 The database interface supports different databases.
 
-For the OTOBO data model please refer to the files in your ``/doc`` directory. Alternatively you can look at the data model on `GitHub <https://github.com/RotherOSS/otobo/blob/rel-10_0/development/diagrams/Database/OTOBODatabaseDiagram.png>`__.
+For the OTOBO data model please refer to the files in the ``scripts/database`` directory. Alternatively you can look at the data model on `GitHub <https://github.com/RotherOSS/otobo/blob/rel-10_0/development/diagrams/Database/OTOBODatabaseDiagram.png>`__.
