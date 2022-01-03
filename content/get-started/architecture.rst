@@ -225,4 +225,4 @@ Database
 
 The database interface supports different databases.
 
-For the OTOBO data model please refer to the files in your ``/doc`` directory. Alternatively you can look at the data model on `GitHub <https://github.com/RotherOSS/otobo/blob/rel-10_0/development/diagrams/Database/OTOBODatabaseDiagram.png>`__.
+For the OTOBO data model please refer to the files in the ``scripts/database`` directory. Alternatively you can look at the data model on `GitHub <https://github.com/RotherOSS/otobo/blob/rel-10_0/development/diagrams/Database/OTOBODatabaseDiagram.png>`__.
