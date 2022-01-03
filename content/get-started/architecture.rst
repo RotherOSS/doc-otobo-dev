@@ -38,7 +38,7 @@ Directories
 +-----------------------------------+-----------------------------------+
 | Kernel/Config/                    | configuration files               |
 +-----------------------------------+-----------------------------------+
-| Kernel/Config/Files               | configuration files               |
+| Kernel/Config/Files/              | configuration files               |
 +-----------------------------------+-----------------------------------+
 | Kernel/GenericInterface/          | the Generic Interface API         |
 +-----------------------------------+-----------------------------------+
@@ -54,11 +54,11 @@ Directories
 | Kernel/GenericInterface/Transport | transport modules for Generic     |
 | /                                 | Interface, e.g. "HTTP SOAP"       |
 +-----------------------------------+-----------------------------------+
-| Kernel/Language                   | language translation files        |
+| Kernel/Language/                  | language translation files        |
 +-----------------------------------+-----------------------------------+
 | Kernel/Scheduler/                 | Scheduler files                   |
 +-----------------------------------+-----------------------------------+
-| Kernel/Scheduler/TaskHandler      | handler modules for scheduler     |
+| Kernel/Scheduler/TaskHandler/     | handler modules for scheduler     |
 |                                   | tasks, e.g. GenericInterface      |
 +-----------------------------------+-----------------------------------+
 | Kernel/System/                    | core modules, e.g. Log, Ticket    |
@@ -66,7 +66,7 @@ Directories
 | Kernel/Modules/                   | front end modules, e.g.           |
 |                                   | QueueView                         |
 +-----------------------------------+-----------------------------------+
-| Kernel/Output/HTML/               | html templates                    |
+| Kernel/Output/HTML/               | HTML templates                    |
 +-----------------------------------+-----------------------------------+
 | var/                              | variable data                     |
 +-----------------------------------+-----------------------------------+
