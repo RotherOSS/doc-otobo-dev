@@ -92,14 +92,19 @@ Directories
 +-----------------------------------+-----------------------------------+
 
 
-Files
------
+File Extensions
+---------------
+
+Here are some commonly used file extensions:
 
 - .pl = Perl
 - .pm = Perl Module
 - .tt = Template::Toolkit template files
+- .js = JavaScript files
 - .dist = Default templates of files
 - .yaml or .yml = YAML files, used for Web Service configuration
+- .xml = XML files
+- .json = JSON files
 
 
 Core Modules
