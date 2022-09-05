@@ -9,7 +9,9 @@ The database layer ``Kernel::System::DB`` has two input options: *SQL* and *XML*
 SQL
 ---
 
-The SQL interface should be used for normal database actions (``SELECT``, ``INSERT``, ``UPDATE``, etc.). It can be used like a normal Perl DBI interface.
+The SQL interface should be used for normal database actions (``SELECT``, ``INSERT``, ``UPDATE``, etc.).
+It can be used like a normal Perl DBI interface. The limitation is that only a single statement handle may
+be active per database object.
 
 
 INSERT/UPDATE/DELETE statements
@@ -17,17 +19,28 @@ INSERT/UPDATE/DELETE statements
 
 .. code-block:: Perl
 
-   $Kernel::OM->Get('Kernel::System::DB')->Do(
-       SQL=> "INSERT INTO table (name, id) VALUES ('SomeName', 123)",
-   );
+    my $Name        = 'Arne ßaknussemm';
+    my $YearOfBirth = 1662;
+    my $DBObject    = $Kernel::OM->Get('Kernel::System::DB');
 
-   $Kernel::OM->Get('Kernel::System::DB')->Do(
-       SQL=> "UPDATE table SET name = 'SomeName', id = 123",
-   );
+    # created
+    $DBObject->Do(
+        SQL  => 'INSERT INTO alchemists (name, birth_year) VALUES ( ?, ? )',
+        Bind => [ \$Name, \$YearOfBirth ],
+    );
 
-   $Kernel::OM->Get('Kernel::System::DB')->Do(
-       SQL=> "DELETE FROM table WHERE id = 123",
-   );
+    # update
+    $Name =~ s/ß/S/;
+    $YearOfBirth++;
+    $DBObject->Do(
+        SQL  => 'UPDATE alchemists SET name = ?, birth_year = ?',
+        Bind => [ \$Name, \$YearOfBirth ],
+    );
+
+    # delete
+    $DBObject->Do(
+       SQL=> 'DELETE FROM alchemists WHERE birth_year > 2022',
+    );
 
 
 SELECT statement
@@ -35,38 +48,57 @@ SELECT statement
 
 .. code-block:: Perl
 
-   my $SQL = "SELECT id FROM table WHERE tn = '123'";
+    my $DBObject = $Kernel::OM->Get('Kernel::System::DB');
 
-   $Kernel::OM->Get('Kernel::System::DB')->Prepare(SQL => $SQL, Limit => 15);
+    # get the last 15 steps for transaction 123
+    my $TransactionNumber = 123;
+    my $SQL = qq{SELECT step_id FROM transaction_steps WHERE tn = ? ORDER BY step_id DESC};
+    $DBObject->Prepare(
+        SQL   => $SQL,
+        Bind  => [ \$TransactionNumber ],
+        Limit => 15,
+    );
 
-   while (my @Row = $Kernel::OM->Get('Kernel::System::DB')->FetchrowArray()) {
-       $Id = $Row[0];
-   }
-   return $Id;
-               
+    my @StepIds;
+    while (my @Row = $DBObject->FetchrowArray()) {
+        push @StepIds, $Row[0];
+    }
+
+    # get description for all valid steps
+    $DBObject->Prepare(
+        SQL   => q{SELECT step_id, description FROM transaction_steps WHERE valid = 1},
+    );
+
+    my %StepIdToDescription;
+    while (my ($StepId, $Description) = $DBObject->FetchrowArray()) {
+        $StepIdToDescription{$StepId} = $Description;
+    }
+
+    # get the number of valid steps
+    $DBObject->Prepare(
+        SQL   => q{SELECT COUNT(*) FROM transaction_steps WHERE valid = 1},
+    );
+
+    # when there is number of results is known, then no loop is required
+    my ($NumValid) = $DBObject->FetchRowArray();
+
+    # loops can alse be avoided with SelectAll()
+    # SelectAll() returns a reference to an array of array references
+    my @ValidIds = map { $_->[0] } $DBObject->SelectAll(
+        SQL => q{SELECT DESTINCT valid_id FROM transaction_steps ORDER BY valid_id ASC},
+    )->@*;
+
 .. note::
 
    Take care to use ``Limit`` as param and not in the SQL string because not all databases support ``LIMIT`` in SQL strings.
 
-.. code-block:: Perl
-
-   my $SQL = "SELECT id FROM table WHERE tn = ? AND group = ?";
-
-   $Kernel::OM->Get('Kernel::System::DB')->Prepare(
-       SQL   => $SQL,
-       Limit => 15,
-       Bind  => [ $Tn, $Group ],
-   );
-
-   while (my @Row = $Kernel::OM->Get('Kernel::System::DB')->FetchrowArray()) {
-       $Id = $Row[0];
-   }
-   return $Id;
-               
 .. note::
 
-   Use the ``Bind`` attribute where ever you can, especially for long statements. If you use ``Bind`` you do not need the function ``Quote()``.
+   Use the ``Bind`` attribute whereever you can, especially for long statements. If you use ``Bind`` you do not need the function ``Quote()``.
 
+.. note::
+
+   Beware that `SelectAll()` may not be used within a loop over the `FetchrowArray()` results.
 
 QUOTE
 ~~~~~
@@ -76,30 +108,28 @@ String:
 .. code-block:: Perl
 
    my $QuotedString = $Kernel::OM->Get('Kernel::System::DB')->Quote("It's a problem!");
-                       
 
 Integer:
 
 .. code-block:: Perl
 
    my $QuotedInteger = $Kernel::OM->Get('Kernel::System::DB')->Quote('123', 'Integer');
-                       
 
 Number:
 
 .. code-block:: Perl
 
    my $QuotedNumber = $Kernel::OM->Get('Kernel::System::DB')->Quote('21.35', 'Number');
-                       
+
 .. note::
 
    Please use the ``Bind`` attribute instead of ``Quote()`` where ever you can.
 
-
 XML
 ---
 
-The XML interface should be used for ``INSERT``, ``CREATE TABLE``, ``DROP TABLE`` and ``ALTER TABLE``. As this syntax is different from database to database, using it makes sure that you write applications that can be used in all of them.
+The XML interface should be used for ``INSERT``, ``CREATE TABLE``, ``DROP TABLE`` and ``ALTER TABLE``. As this syntax is different from database to database,
+using it makes sure that you write applications that can be used in all of them.
 
 
 INSERT
@@ -233,10 +263,10 @@ Code to Process XML
    my @SQL = $Kernel::OM->Get('Kernel::System::DB')->SQLProcessor(
        Database => \@XMLARRAY,
    );
-   push(@SQL, $Kernel::OM->Get('Kernel::System::DB')->SQLProcessorPost());
+   push @SQL, $Kernel::OM->Get('Kernel::System::DB')->SQLProcessorPost();
 
-   for (@SQL) {
-       $Kernel::OM->Get('Kernel::System::DB')->Do(SQL => $_);
+   for my $Statement (@SQL) {
+       $Kernel::OM->Get('Kernel::System::DB')->Do(SQL => $Statement);
    }
 
 
@@ -249,7 +279,7 @@ The database drivers are located under ``$OTOBO_HOME/Kernel/System/DB/*.pm``.
 Supported Databases
 -------------------
 
--  MySQL
+-  MySQL or MariaDB
 -  PostgreSQL
 -  Oracle
 -  Microsoft SQL Server (only for external database connections, not as OTOBO database)
