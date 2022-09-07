@@ -1,17 +1,16 @@
 Database Mechanism
 ==================
 
-OTOBO comes with a database layer that supports different databases.
+OTOBO comes with a database layer that provides access to different databases.
 
-The database layer ``Kernel::System::DB`` has two input options: *SQL* and *XML*.
-
+``Kernel::System::DB`` supports two ways of interacting with the database: *SQL* and *XML*.
 
 SQL
 ---
 
 The SQL interface should be used for normal database actions (``SELECT``, ``INSERT``, ``UPDATE``, etc.).
-It can be used like a normal Perl DBI interface. The limitation is that only a single statement handle may
-be active per database object.
+It can be used more or less like the Perl DBI interface. One limitation is that only a single statement handle
+may be active per database object.
 
 
 INSERT/UPDATE/DELETE statements
@@ -42,6 +41,18 @@ INSERT/UPDATE/DELETE statements
        SQL=> 'DELETE FROM alchemists WHERE birth_year > 2022',
     );
 
+A special feature is the possibility to insert a timestamp that is generated on the client side.
+Using the client time avoids inconsistences with a divergent time on the database host.
+
+.. code-block:: Perl
+
+    # add entry
+    my $Name        = 'Professor Otto Lidenbrock';
+    my $DBObject    = $Kernel::OM->Get('Kernel::System::DB');
+    $DBObject->Do(
+        SQL  => 'INSERT INTO geologist (name, created) VALUES (?, current_timestamp)',
+        Bind => [ \$Name ],
+    );
 
 SELECT statement
 ~~~~~~~~~~~~~~~~
@@ -80,7 +91,7 @@ SELECT statement
     );
 
     # when there is number of results is known, then no loop is required
-    my ($NumValid) = $DBObject->FetchRowArray();
+    my ($NumValid) = $DBObject->FetchrowArray();
 
     # loops can alse be avoided with SelectAll()
     # SelectAll() returns a reference to an array of array references
