@@ -33,11 +33,11 @@ Clone the `module-tools <https://github.com/RotherOSS/module-tools>`__ module to
 
    shell> git clone git@github.com:OTOBO/module-tools.git
 
-`OTOBOCodePolicy <https://github.com/RotherOSS/otobocodepolicy>`__ is a code quality checker that enforces the use of common coding standards also for the OTOBO development team. It is highly recommended to use it if you plan to make contributions. You can use it as a standalone test script or even register it as a git commit hook that runs every time that you create a commit. Please see `the module documentation <https://github.com/OTOBO/otobocodepolicy/blob/master/doc/en/OTOBOCodePolicy.xml>`__ for details.
+`OTOBOCodePolicy <https://github.com/RotherOSS/CodePolicy>`__ is a code quality checker that enforces the use of common coding standards also for the OTOBO development team. It is highly recommended to use it if you plan to make contributions. You can use it as a standalone test script or even register it as a git commit hook that runs every time that you create a commit. Please see `the module documentation <https://github.com/RotherOSS/CodePolicy/blob/master/doc/en/CodePolicy.xml>`__ for details.
 
 .. code-block:: bash
 
-   shell> git clone git@github.com:RotherOSS/otobocodepolicy.git
+   shell> git clone git@github.com:RotherOSS/CodePolicy.git
 
 
 Linking Expansion Modules

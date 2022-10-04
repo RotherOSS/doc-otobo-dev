@@ -3,7 +3,7 @@ Sending Contributions
 
 The source code of OTOBO and additional modules can be found on `GitHub <https://github.com/RotherOSS>`__. From there you can get to the listing of all available repositories. It also describes the currently active branches and where contributions should go to (stable vs. development branches).
 
-It is highly recommended that you use the OTOBO code quality checker `OTOBOCodePolicy <https://github.com/RotherOSS/otobocodepolicy>`__ as described in the :ref:`Useful Tools` even before sending in your contributions. If your code does not validate against this tool, it will likely not be accepted.
+It is highly recommended that you use the OTOBO code quality checker `OTOBOCodePolicy <https://github.com/RotherOSS/CodePolicy>`__ as described in the :ref:`Useful Tools` even before sending in your contributions. If your code does not validate against this tool, it will likely not be accepted.
 
 The easiest way to send your contributions to the OTOBO developer's team is by creating a *pull request* in GitHub. Please take a look at the instructions on `GitHub <https://help.github.com>`__, specifically about `forking a repository and sending pull requests <https://help.github.com/articles/fork-a-repo>`__.
 
