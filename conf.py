@@ -6,14 +6,14 @@
 
 # -- Variables ------------------------------------------------------------
 # See: https://stackoverflow.com/a/36331678
-doc_datestamp = '2021-12-27'
+doc_datestamp = '2024-03-10'
 doc_description = 'This is the description of the documentation.'
 doc_license = 'GNU Free Documentation License'
 doc_name = 'OTOBO Developer Manual'
 doc_url = 'https://otobo.de'
 doc_vendor = 'Rother OSS GmbH'
 doc_version = '10.1'
-doc_yearstamp = '2021'
+doc_yearstamp = '2024'
 
 rst_prolog = """
 .. |doc-datestamp| replace:: {0}
@@ -141,8 +141,8 @@ html_copy_source = False
 
 html_context = {
     "display_github": True,
-    "github_user": "OTOBO",
-    "github_repo": "doc-developer",
+    "github_user": "RotherOSS",
+    "github_repo": "doc-otobo-dev",
     "github_version": "master",
     "conf_py_path": "/",
 }
@@ -151,7 +151,7 @@ html_context = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'doc-developer'
+htmlhelp_basename = 'doc-otobo-dev'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -178,10 +178,18 @@ latex_elements = {
 \usepackage{tgtermes}
 \usepackage{tgheros}
 \usepackage{tgcursor}
-\setmainfont{TeX Gyre Heros}
-\setsansfont{TeX Gyre Heros}
 \setmonofont{TeX Gyre Cursor}
+\setmainfont{Quicksand}
+\setsansfont{Quicksand}
 ''',
+
+# TODO: beautify the whole thing - suggestions:
+#% use the Quicksand font instead of TeX Gyre Heros (has to be installed; e.g. present in /usr/share/fonts/truetype/quicksand/)
+#\setmainfont{Quicksand}
+#\setsansfont{Quicksand}
+#% for package docs the "Chapter" style is a bit much; instead of usepackage[Sonny]{fncychap} try overwriting this sphinx-default(?) by adding
+#\usepackage{titlesec}
+#\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter}{0.8em}{\Huge\bfseries}
 
 #\usepackage[fallback]{xeCJK}
 # Rother OSS / TODO: Do not need vietnam chars, bug
@@ -197,7 +205,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'doc-developer.tex', 'OTOBO Developer Manual',
+    (master_doc, 'doc-otobo-dev.tex', 'OTOBO Developer Manual',
      'Rother OSS GmbH', 'manual'),
 ]
 

@@ -1,19 +1,21 @@
 Ticket Event Module
 ===================
 
-Ticket event modules are running right after a ticket action takes place. Per convention these modules are located in the directory ``Kernel/System/Ticket/Event``. A ticket event module needs only two functions: ``new()`` and ``Run()``. The method ``Run()`` receives at least the parameters ``Event``, ``UserID`` and ``Data``. ``Data`` is a hash ref containing data of the ticket, and in case of article related events also containing article data.
+Ticket event modules are running right after a ticket or an article action took place.
+Per convention these modules are located in the directory ``Kernel/System/Ticket/Event``. A ticket event module needs only two functions: ``new()`` and ``Run()``. The method ``Run()`` receives at least the parameters ``Event``, ``UserID`` and ``Data``. The parameter ``Data`` is a referecne to a hash.
+It contains data of the ticket and, in the case of article related events, also data of the article.
 
 
 Ticket Event Module Code Example
 --------------------------------
 
-See files in ``Kernel/System/Ticket/Event`` folder of the source code.
+See the files in ``Kernel/System/Ticket/Event`` folder of the source code.
 
 
 Ticket Event Module Configuration Example
 -----------------------------------------
 
-See settings in ``Kernel/Config/Files/XML/Ticket.xml`` started with the name ``Ticket::EventModulePost###``.
+See the settings in ``Kernel/Config/Files/XML/Ticket.xml`` that are starting with the name ``Ticket::EventModulePost###``.
 
 
 Ticket Event Module Use Case Example

@@ -826,7 +826,7 @@ Documentation is made with CSSDOC (see CSS files for examples). All logical bloc
 CSS Architecture
 ~~~~~~~~~~~~~~~~
 
-We follow the `Object Oriented CSS <http://wiki.github.com/stubbornella/oocss/>`__ approach. In essence, this means that the layout is achieved by combining different generic building blocks to realize a particular design.
+We follow the `Object Oriented CSS <https://github.com/stubbornella/oocss/wiki>`__ approach. In essence, this means that the layout is achieved by combining different generic building blocks to realize a particular design.
 
 Wherever possible, module specific design should not be used. Therefore we also do not work with IDs on the ``body`` element, for example, if it can be avoided.
 
