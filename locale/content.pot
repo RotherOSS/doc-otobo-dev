@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OTOBO Developer Manual 10.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-27 03:25+0100\n"
+"POT-Creation-Date: 2024-03-10 13:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 #: ../../content/how-it-works.rst:14
 #: ../../content/how-to-extend-otobo.rst:14
 #: ../../content/how-to-publish-otobo-extensions.rst:14
-#: ../../content/index.rst:48
+#: ../../content/index.rst:47
 msgid "Contents"
 msgstr ""
 
@@ -936,7 +936,7 @@ msgid "CSS Architecture"
 msgstr ""
 
 #: ../../content/contributing/code-style.rst:839
-msgid "We follow the `Object Oriented CSS <http://wiki.github.com/stubbornella/oocss/>`__ approach. In essence, this means that the layout is achieved by combining different generic building blocks to realize a particular design."
+msgid "We follow the `Object Oriented CSS <https://github.com/stubbornella/oocss/wiki>`__ approach. In essence, this means that the layout is achieved by combining different generic building blocks to realize a particular design."
 msgstr ""
 
 #: ../../content/contributing/code-style.rst:841
@@ -988,7 +988,7 @@ msgid "The source code of OTOBO and additional modules can be found on `GitHub <
 msgstr ""
 
 #: ../../content/contributing/sending-contributions.rst:16
-msgid "It is highly recommended that you use the OTOBO code quality checker `OTOBOCodePolicy <https://github.com/RotherOSS/otobocodepolicy>`__ as described in the :ref:`Useful Tools` even before sending in your contributions. If your code does not validate against this tool, it will likely not be accepted."
+msgid "It is highly recommended that you use the OTOBO code quality checker `OTOBOCodePolicy <https://github.com/RotherOSS/CodePolicy>`__ as described in the :ref:`Useful Tools` even before sending in your contributions. If your code does not validate against this tool, it will likely not be accepted."
 msgstr ""
 
 #: ../../content/contributing/sending-contributions.rst:18
@@ -2319,7 +2319,7 @@ msgid "Clone the `module-tools <https://github.com/RotherOSS/module-tools>`__ mo
 msgstr ""
 
 #: ../../content/get-started/development-environment.rst:46
-msgid "`OTOBOCodePolicy <https://github.com/RotherOSS/otobocodepolicy>`__ is a code quality checker that enforces the use of common coding standards also for the OTOBO development team. It is highly recommended to use it if you plan to make contributions. You can use it as a standalone test script or even register it as a git commit hook that runs every time that you create a commit. Please see `the module documentation <https://github.com/OTOBO/otobocodepolicy/blob/master/doc/en/OTOBOCodePolicy.xml>`__ for details."
+msgid "`OTOBOCodePolicy <https://github.com/RotherOSS/CodePolicy>`__ is a code quality checker that enforces the use of common coding standards also for the OTOBO development team. It is highly recommended to use it if you plan to make contributions. You can use it as a standalone test script or even register it as a git commit hook that runs every time that you create a commit. Please see `the module documentation <https://github.com/RotherOSS/CodePolicy/blob/master/doc/en/CodePolicy.xml>`__ for details."
 msgstr ""
 
 #: ../../content/get-started/development-environment.rst:54
@@ -2787,130 +2787,138 @@ msgid "Database Mechanism"
 msgstr ""
 
 #: ../../content/how-it-works/database-mechanism.rst:14
-msgid "OTOBO comes with a database layer that supports different databases."
+msgid "OTOBO comes with a database layer that provides access to different databases."
 msgstr ""
 
 #: ../../content/how-it-works/database-mechanism.rst:16
-msgid "The database layer ``Kernel::System::DB`` has two input options: *SQL* and *XML*."
+msgid "``Kernel::System::DB`` supports two ways of interacting with the database: *SQL* and *XML*."
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:20
+#: ../../content/how-it-works/database-mechanism.rst:19
 msgid "SQL"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:22
-msgid "The SQL interface should be used for normal database actions (``SELECT``, ``INSERT``, ``UPDATE``, etc.). It can be used like a normal Perl DBI interface."
+#: ../../content/how-it-works/database-mechanism.rst:21
+msgid "The SQL interface should be used for normal database actions (``SELECT``, ``INSERT``, ``UPDATE``, etc.). It can be used more or less like the Perl DBI interface. One limitation is that only a single statement handle may be active per database object."
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:26
+#: ../../content/how-it-works/database-mechanism.rst:27
 msgid "INSERT/UPDATE/DELETE statements"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:44
+#: ../../content/how-it-works/database-mechanism.rst:54
+msgid "A special feature is the possibility to insert a timestamp that is generated on the client side. Using the client time avoids inconsistences with a divergent time on the database host."
+msgstr ""
+
+#: ../../content/how-it-works/database-mechanism.rst:68
 msgid "SELECT statement"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:59
+#: ../../content/how-it-works/database-mechanism.rst:114
 msgid "Take care to use ``Limit`` as param and not in the SQL string because not all databases support ``LIMIT`` in SQL strings."
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:78
-msgid "Use the ``Bind`` attribute where ever you can, especially for long statements. If you use ``Bind`` you do not need the function ``Quote()``."
+#: ../../content/how-it-works/database-mechanism.rst:118
+msgid "Use the ``Bind`` attribute whereever you can, especially for long statements. If you use ``Bind`` you do not need the function ``Quote()``."
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:82
+#: ../../content/how-it-works/database-mechanism.rst:122
+msgid "Beware that `SelectAll()` may not be used within a loop over the `FetchrowArray()` results."
+msgstr ""
+
+#: ../../content/how-it-works/database-mechanism.rst:125
 msgid "QUOTE"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:84
+#: ../../content/how-it-works/database-mechanism.rst:127
 msgid "String:"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:91
+#: ../../content/how-it-works/database-mechanism.rst:133
 msgid "Integer:"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:98
+#: ../../content/how-it-works/database-mechanism.rst:139
 msgid "Number:"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:106
+#: ../../content/how-it-works/database-mechanism.rst:147
 msgid "Please use the ``Bind`` attribute instead of ``Quote()`` where ever you can."
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:110
+#: ../../content/how-it-works/database-mechanism.rst:150
 msgid "XML"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:112
+#: ../../content/how-it-works/database-mechanism.rst:152
 msgid "The XML interface should be used for ``INSERT``, ``CREATE TABLE``, ``DROP TABLE`` and ``ALTER TABLE``. As this syntax is different from database to database, using it makes sure that you write applications that can be used in all of them."
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:116
+#: ../../content/how-it-works/database-mechanism.rst:157
 msgid "INSERT"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:127
+#: ../../content/how-it-works/database-mechanism.rst:168
 msgid "CREATE TABLE"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:129
+#: ../../content/how-it-works/database-mechanism.rst:170
 msgid "Possible data types are: ``BIGINT``, ``SMALLINT``, ``INTEGER``, ``VARCHAR`` (Size=1-1000000), ``DATE`` (format: yyyy-mm-dd hh:mm:ss) and ``LONGBLOB``."
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:152
+#: ../../content/how-it-works/database-mechanism.rst:193
 msgid "``LONGBLOB`` columns need special treatment. Their content needs to be base64 transcoded if the database driver does not support the feature ``DirectBlob``. Please see the following example:"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:161
+#: ../../content/how-it-works/database-mechanism.rst:202
 msgid "Similarly, when reading from such a column, the content must not automatically be decoded as UTF-8 by passing the ``Encode => 0`` flag to ``Prepare()``:"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:193
+#: ../../content/how-it-works/database-mechanism.rst:234
 msgid "DROP TABLE"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:201
+#: ../../content/how-it-works/database-mechanism.rst:242
 msgid "ALTER TABLE"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:203
+#: ../../content/how-it-works/database-mechanism.rst:244
 msgid "The following shows an example of add, change and drop columns."
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:229
+#: ../../content/how-it-works/database-mechanism.rst:270
 msgid "The next shows an example how to rename a table."
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:237
+#: ../../content/how-it-works/database-mechanism.rst:278
 msgid "Code to Process XML"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:254
+#: ../../content/how-it-works/database-mechanism.rst:295
 msgid "Database Drivers"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:256
+#: ../../content/how-it-works/database-mechanism.rst:297
 msgid "The database drivers are located under ``$OTOBO_HOME/Kernel/System/DB/*.pm``."
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:260
+#: ../../content/how-it-works/database-mechanism.rst:301
 msgid "Supported Databases"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:262
-msgid "MySQL"
+#: ../../content/how-it-works/database-mechanism.rst:303
+msgid "MySQL or MariaDB"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:263
+#: ../../content/how-it-works/database-mechanism.rst:304
 msgid "PostgreSQL"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:264
+#: ../../content/how-it-works/database-mechanism.rst:305
 msgid "Oracle"
 msgstr ""
 
-#: ../../content/how-it-works/database-mechanism.rst:265
+#: ../../content/how-it-works/database-mechanism.rst:306
 msgid "Microsoft SQL Server (only for external database connections, not as OTOBO database)"
 msgstr ""
 
@@ -6846,276 +6854,276 @@ msgid "Ticket Event Module"
 msgstr ""
 
 #: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:14
-msgid "Ticket event modules are running right after a ticket action takes place. Per convention these modules are located in the directory ``Kernel/System/Ticket/Event``. A ticket event module needs only two functions: ``new()`` and ``Run()``. The method ``Run()`` receives at least the parameters ``Event``, ``UserID`` and ``Data``. ``Data`` is a hash ref containing data of the ticket, and in case of article related events also containing article data."
-msgstr ""
-
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:18
-msgid "Ticket Event Module Code Example"
+msgid "Ticket event modules are running right after a ticket or an article action took place. Per convention these modules are located in the directory ``Kernel/System/Ticket/Event``. A ticket event module needs only two functions: ``new()`` and ``Run()``. The method ``Run()`` receives at least the parameters ``Event``, ``UserID`` and ``Data``. The parameter ``Data`` is a referecne to a hash. It contains data of the ticket and, in the case of article related events, also data of the article."
 msgstr ""
 
 #: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:20
-msgid "See files in ``Kernel/System/Ticket/Event`` folder of the source code."
+msgid "Ticket Event Module Code Example"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:24
-msgid "Ticket Event Module Configuration Example"
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:22
+msgid "See the files in ``Kernel/System/Ticket/Event`` folder of the source code."
 msgstr ""
 
 #: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:26
-msgid "See settings in ``Kernel/Config/Files/XML/Ticket.xml`` started with the name ``Ticket::EventModulePost###``."
+msgid "Ticket Event Module Configuration Example"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:30
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:28
+msgid "See the settings in ``Kernel/Config/Files/XML/Ticket.xml`` that are starting with the name ``Ticket::EventModulePost###``."
+msgstr ""
+
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:32
 msgid "Ticket Event Module Use Case Example"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:33
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:35
 msgid "A ticket should be unlocked after a move action"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:33
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:35
 msgid "This standard feature has been implemented with the ticket event module ``Kernel::System::Ticket::Event::ForceUnlock``. When this feature is not wanted, then it can be turned off by unsetting the system configuration entry ``Ticket::EventModulePost###910-ForceUnlockOnMove``."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:36
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:38
 msgid "Perform extra cleanup action when a ticket is deleted"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:36
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:38
 msgid "A customized OTOBO might hold non-standard data in additional database tables. When a ticket is deleted then this additional data needs to be deleted. This functionality can be achieved with a ticket event module listening to ``TicketDelete`` events."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:40
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:42
 msgid "New tickets should be twittered"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:39
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:41
 msgid "A ticket event module listening to ``TicketCreate`` can send out tweets."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:43
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:45
 msgid "Ticket and Article Events"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:45
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:47
 msgid "Available ticket events:"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:47
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:49
 msgid "``TicketCreate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:48
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:50
 msgid "``TicketDelete``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:49
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:51
 msgid "``TicketTitleUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:50
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:52
 msgid "``TicketUnlockTimeoutUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:51
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:53
 msgid "``TicketQueueUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:52
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:54
 msgid "``TicketTypeUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:53
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:55
 msgid "``TicketServiceUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:54
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:56
 msgid "``TicketSLAUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:55
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:57
 msgid "``TicketCustomerUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:56
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:58
 msgid "``TicketPendingTimeUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:57
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:59
 msgid "``TicketLockUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:58
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:60
 msgid "``TicketArchiveFlagUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:59
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:61
 msgid "``TicketStateUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:60
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:62
 msgid "``TicketOwnerUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:61
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:63
 msgid "``TicketResponsibleUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:62
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:64
 msgid "``TicketPriorityUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:63
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:65
 msgid "``HistoryAdd``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:64
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:66
 msgid "``HistoryDelete``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:65
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:67
 msgid "``TicketAccountTime``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:66
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:68
 msgid "``TicketMerge``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:67
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:69
 msgid "``TicketSubscribe``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:68
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:70
 msgid "``TicketUnsubscribe``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:69
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:71
 msgid "``TicketFlagSet``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:70
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:72
 msgid "``TicketFlagDelete``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:71
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:73
 msgid "``EscalationResponseTimeNotifyBefore``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:72
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:74
 msgid "``EscalationUpdateTimeNotifyBefore``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:73
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:75
 msgid "``EscalationSolutionTimeNotifyBefore``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:74
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:76
 msgid "``EscalationResponseTimeStart``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:75
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:77
 msgid "``EscalationUpdateTimeStart``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:76
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:78
 msgid "``EscalationSolutionTimeStart``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:77
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:79
 msgid "``EscalationResponseTimeStop``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:78
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:80
 msgid "``EscalationUpdateTimeStop``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:79
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:81
 msgid "``EscalationSolutionTimeStop``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:80
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:82
 msgid "``NotificationNewTicket``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:81
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:83
 msgid "``NotificationFollowUp``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:82
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:84
 msgid "``NotificationLockTimeout``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:83
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:85
 msgid "``NotificationOwnerUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:84
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:86
 msgid "``NotificationResponsibleUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:85
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:87
 msgid "``NotificationAddNote``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:86
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:88
 msgid "``NotificationMove``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:87
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:89
 msgid "``NotificationPendingReminder``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:88
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:90
 msgid "``NotificationEscalation``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:89
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:91
 msgid "``NotificationEscalationNotifyBefore``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:90
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:92
 msgid "``NotificationServiceUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:92
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:94
 msgid "Available article events:"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:94
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:96
 msgid "``ArticleCreate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:95
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:97
 msgid "``ArticleUpdate``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:96
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:98
 msgid "``ArticleSend``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:97
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:99
 msgid "``ArticleBounce``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:98
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:103
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:100
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:105
 msgid "``ArticleAgentNotification``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:99
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:104
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:101
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:106
 msgid "``ArticleCustomerNotification``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:100
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:102
 msgid "``ArticleAutoResponse``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:101
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:103
 msgid "``ArticleFlagSet``"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:102
+#: ../../content/how-to-extend-otobo/otobo-module-layers/ticketevent.rst:104
 msgid "``ArticleFlagDelete``"
 msgstr ""
 
@@ -8567,31 +8575,31 @@ msgstr ""
 msgid "You can replace old code like:"
 msgstr ""
 
-#: ../../content/index.rst:21
+#: ../../content/index.rst:20
 msgid "OTOBO Development Tutorial"
 msgstr ""
 
-#: ../../content/index.rst:23
+#: ../../content/index.rst:22
 msgid "This work is copyrighted by OTRS AG (https://otrs.com), Zimmersmühlenweg 11, 61440 Oberursel, Germany."
 msgstr ""
 
-#: ../../content/index.rst:26
+#: ../../content/index.rst:25
 msgid "Copyright © for modifications and amendments 2019-2020 ROTHER OSS GmbH (https://otobo.de), Oberwalting 31, 94339 Leiblfing, Germany"
 msgstr ""
 
-#: ../../content/index.rst:29
+#: ../../content/index.rst:28
 msgid "Terms and Conditions OTRS: Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license can be found on the GNU website."
 msgstr ""
 
-#: ../../content/index.rst:36
+#: ../../content/index.rst:35
 msgid "Terms and Conditions Rother OSS: Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled \"COPYING\"."
 msgstr ""
 
-#: ../../content/index.rst:43
+#: ../../content/index.rst:42
 msgid "Published by: Rother OSS GmbH, (https://otobo.de), Oberwalting 31, 94339 Leiblfing, Germany."
 msgstr ""
 
-#: ../../content/index.rst:46
+#: ../../content/index.rst:45
 msgid "Authors: OTRS AG (original version), Rother OSS GmbH (https://otobo.de)."
 msgstr ""
 
