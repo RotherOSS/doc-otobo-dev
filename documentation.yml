@@ -3,7 +3,7 @@
 Variables:
   doc_name: OTOBO Developer Manual
   doc_description: This is the description of the documentation.
-  doc_version: 11.0
+  doc_version: 10.0
   doc_yearstamp: current_yearstamp
   doc_vendor: Rother OSS GmbH
   doc_url: https://otobo.de
@@ -14,8 +14,8 @@ Variables:
 ProjectName: OTOBO Developer Manual
 Copyright: 2019-2024 Rother OSS GmbH, https://otobo.de/
 Author: Rother OSS GmbH
-Version: 11.0
-Release: 11.0
+Version: 10.0
+Release: 10.0
 
 # sphinx extension module names to be used
 Extensions:
