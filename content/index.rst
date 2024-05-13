@@ -1,4 +1,8 @@
-   
+
+.. image:: ../images/otobo-logo.png
+   :align: center
+|
+
 ===========================
 OTOBO Development Tutorial
 ===========================
