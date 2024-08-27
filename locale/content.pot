@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OTOBO Developer Manual 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-27 00:39+0200\n"
+"POT-Creation-Date: 2024-08-28 00:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -8211,7 +8211,6 @@ msgstr ""
 #: ../../content/how-to-publish-otobo-extensions/package-porting.rst:272
 #: ../../content/how-to-publish-otobo-extensions/package-porting.rst:313
 #: ../../content/how-to-publish-otobo-extensions/package-porting.rst:376
-#: ../../content/how-to-publish-otobo-extensions/package-porting.rst:417
 msgid "Replace this by:"
 msgstr ""
 
@@ -8261,26 +8260,6 @@ msgstr ""
 
 #: ../../content/how-to-publish-otobo-extensions/package-porting.rst:370
 msgid "If an event list is required in your code and you have an occurrence of this:"
-msgstr ""
-
-#: ../../content/how-to-publish-otobo-extensions/package-porting.rst:383
-msgid "``MojoUserAgent`` Added, ``WebUserAgent`` Deprecated"
-msgstr ""
-
-#: ../../content/how-to-publish-otobo-extensions/package-porting.rst:385
-msgid "The legacy ``Kernel::System::WebUserAgent`` was deprecated and ``Kernel::System::MojoUserAgent`` provided as a modern alternative."
-msgstr ""
-
-#: ../../content/how-to-publish-otobo-extensions/package-porting.rst:387
-msgid "Now it is possible to use the full `Mojo::UserAgent <https://metacpan.org/pod/Mojo::UserAgent>`__ API on instances of the new HTTP user agent."
-msgstr ""
-
-#: ../../content/how-to-publish-otobo-extensions/package-porting.rst:391
-msgid "The legacy ``WebUserAgent`` will be removed in a future version of OTOBO. Please update all code that used it to the new object."
-msgstr ""
-
-#: ../../content/how-to-publish-otobo-extensions/package-porting.rst:393
-msgid "You can replace old code like:"
 msgstr ""
 
 #: ../../content/index.rst:18
