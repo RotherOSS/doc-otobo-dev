@@ -1,5 +1,5 @@
 Writing A New OTOBO Front End Component
-======================================
+=======================================
 
 In this example, we will try to write a new OTOBO front end component. Starting with OTOBO 10, the framework supports single page application front ends written in Vue.js and based on a new JavaScript toolchain. First iteration contains the new external interface, for which we will try to write a custom component. You will need to have a running OTOBO :doc:`../get-started/development-environment` as specified in the chapter of the same name.
 
