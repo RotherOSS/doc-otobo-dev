@@ -1,5 +1,5 @@
 How to Extend OTOBO
-==================
+===================
 
 .. toctree::
    :maxdepth: 3
