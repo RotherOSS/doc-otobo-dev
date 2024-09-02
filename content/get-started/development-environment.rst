@@ -74,7 +74,7 @@ Tipps and tricks
 -------------------------
 
 Debug syntax errors in OTOBO Perl files
-~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Change to the OTOBO Homedirectory:
 
