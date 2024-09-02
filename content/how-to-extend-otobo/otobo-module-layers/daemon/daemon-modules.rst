@@ -1,11 +1,11 @@
 OTOBO Daemon
-===========
+============
 
 The OTOBO daemon is a separated process that helps OTOBO to execute certain actions asynchronously and detached of the web server process, but sharing the same database.
 
 
 OTOBO Daemon Modules
--------------------
+--------------------
 
 The OTOBO daemon ``bin/otobo.Daemon.pl`` main purpose is to call (daemonize) all the registered daemon modules in the system configuration.
 
