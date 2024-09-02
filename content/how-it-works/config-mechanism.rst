@@ -6,7 +6,7 @@ options or change existing default values.
 
 
 ``Defaults.pm``: OTOBO Default Configuration
--------------------------------------------
+--------------------------------------------
 
 The default configuration file of OTOBO is ``Kernel/Config/Defaults.pm``. This file is needed for operation of freshly installed systems without a deployed XML configuration and should be left untouched as it is automatically updated on framework updates.
 
