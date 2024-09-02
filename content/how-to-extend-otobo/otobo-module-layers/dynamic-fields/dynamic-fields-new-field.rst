@@ -890,10 +890,6 @@ The checkbox field driver only inherits from ``Base.pm``, as all other functions
 
 In this section the password dynamic field driver is shown and explained. This driver inherits some functions from ``Base.pm`` and ``BaseText.pm`` (``Base/Text.pm`` in the new API) and only implements the functions that needs different results.
 
-
-Dynamic Field Driver Example
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. code-block:: Perl
 
    # --
