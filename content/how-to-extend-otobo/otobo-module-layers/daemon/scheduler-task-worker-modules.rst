@@ -1,11 +1,11 @@
 OTOBO Scheduler
-==============
+===============
 
 The OTOBO scheduler is a conjunction of daemon modules and task workers that runs together in order to perform all needed OTOBO tasks asynchronously from the web server process.
 
 
 OTOBO Scheduler Task Managers
-----------------------------
+-----------------------------
 
 ``SchedulerCronTaskManager``
    This reads registered cron tasks from the OTOBO system configuration and determines the correct time to create a task to be executed.
@@ -20,7 +20,7 @@ Whenever these tasks managers are not enough, a new daemon module can be created
 
 
 OTOBO Scheduler Task Workers
----------------------------
+----------------------------
 
 ``SchedulerTaskWorker``
    This executes all tasks planned by the previous tasks managers plus the ones that come directly from the code by using the asynchronous executor.
