@@ -1,5 +1,5 @@
 How to Publish Your OTOBO Extensions
-===================================
+====================================
 
 .. toctree::
    :maxdepth: 3
