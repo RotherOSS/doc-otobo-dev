@@ -15,7 +15,7 @@ In the context of web development, accessibility has a focus on providing people
 
 
 Why is it important for OTOBO?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To enable impaired users to access OTOBO systems is a valid goal in itself. It shows respect.
 
