@@ -1,5 +1,5 @@
 OTOBO Internals - How it Works
-=============================
+==============================
 
 .. toctree::
    :maxdepth: 3
