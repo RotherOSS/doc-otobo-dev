@@ -71,10 +71,10 @@ To remove links from OTOBO enter the following command:
 
 
 Tipps and tricks
--------------------------
+----------------
 
 Debug syntax errors in OTOBO perl files
-~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Change to the OTOBO Homedirectory:
 
