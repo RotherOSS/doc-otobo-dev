@@ -43,3 +43,5 @@ Authors: OTRS AG (original version), Rother OSS GmbH (https://otobo.de).
    documentation
    contributing
    additional-resources
+   history
+
