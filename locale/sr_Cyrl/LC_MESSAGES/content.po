@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OTOBO Developer Manual 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-28 00:37+0200\n"
+"POT-Creation-Date: 2024-09-02 16:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3090,14 +3090,14 @@ msgid "2019 - OTRS Development Guide - OTRS AG (https://otrs.com)"
 msgstr ""
 
 #: ../../content/history.rst:16
-msgid "2020 - OTOBO Development Tutorial - Rother OSS GmbH (https://otobo.de)"
+msgid "2020 - OTOBO Development Tutorial - Rother OSS GmbH (https://otobo.io)"
 msgstr ""
 
 #: ../../content/history.rst:18
 msgid ""
-"Published by: Rother OSS GmbH, (https://otobo.de), Oberwalting 31, 94339 "
+"Published by: Rother OSS GmbH, (https://otobo.io), Oberwalting 31, 94339 "
 "Leiblfing, Germany. Authors: OTRS AG (original version), Rother OSS GmbH "
-"(https://otobo.de)"
+"(https://otobo.io)"
 msgstr ""
 
 #: ../../content/history.rst:21
@@ -6827,7 +6827,6 @@ msgid ""
 msgstr ""
 
 #: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:889
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:905
 msgid "Dynamic Field Driver Example"
 msgstr ""
 
@@ -6863,21 +6862,21 @@ msgid ""
 " needs different results."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:932
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:928
 msgid ""
 "This is the common header, that can be found in common OTOBO modules. The"
 " class/package name is declared via the ``package`` keyword. Note that "
 "``BaseText`` is used as the base class."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:992
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:988
 msgid ""
 "The constructor ``new`` creates a new instance of the class. According to"
 " the coding guidelines, objects of other classes, that are needed in this"
 " module, have to be created in subroutine ``new``."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:994
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:990
 msgid ""
 "It is important to define the behaviors correctly, as the field might or "
 "might not be used in certain screens, functions that depends on "
@@ -6885,20 +6884,20 @@ msgid ""
 "needed to be implemented."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:998
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:994
 msgid ""
 "Drivers are created only by the ``BackendObject`` and not directly from "
 "any other module."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1088
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1084
 msgid ""
 "This function is responsible to create the HTML representation of the "
 "field and its label. It is used in the edit screens like "
 "``AgentTicketPhone``, ``AgentTicketNote``, etc."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1151
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1147
 msgid ""
 "The ``DisplayValueRender()`` function returns the field value as plain "
 "text, as well as its title (both can be translated). For this particular "
@@ -6906,36 +6905,36 @@ msgid ""
 "predefined mask by a configuration parameter in the dynamic field."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1196
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1192
 msgid ""
 "This function is similar to ``DisplayValueRender()`` but it is used in "
 "locations, where no ``LayoutObject`` is available."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1200
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1196
 msgid "Other Functions"
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1202
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1198
 msgid ""
 "The following are other functions, that might be needed, if the new "
 "dynamic field does not inherit from other classes."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1204
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1200
 msgid ""
 "To see the complete code of this functions, please take a look directly "
 "into the file ``Kernel/System/DynamicField/Driver/Base.pm``."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1210
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1206
 msgid ""
 "This function retrieves the value from the field on a specified object. "
 "In this case we are returning the first text value, since the field only "
 "stores one text value at time."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1216
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1212
 msgid ""
 "This function is used to store a dynamic field value. In this case this "
 "field only stores one text type value. Other fields could store more than"
@@ -6943,7 +6942,7 @@ msgid ""
 "format."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1223
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1219
 msgid ""
 "This function is used to delete one field value attached to a particular "
 "object ID. For example if the instance of an object is to be deleted, "
@@ -6951,31 +6950,31 @@ msgid ""
 "for that particular object instance."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1229
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1225
 msgid ""
 "This function is used to delete all values from a certain dynamic field. "
 "This function is very useful when a dynamic field is going to be deleted."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1235
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1231
 msgid "This function is used to check if the value is consistent to its type."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1241
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1237
 msgid ""
 "This function is used by ``TicketSearch`` core module to build the "
 "internal query to search for a ticket based on this field as a search "
 "parameter."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1247
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1243
 msgid ""
 "This function is also a helper for ``TicketSearch`` module. "
 "``$Param{TableAlias}`` should be kept and ``value_text`` could be "
 "replaced with ``value_date`` or ``value_int`` depending on the field."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1253
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1249
 msgid ""
 "This function is used in the edit screens of OTOBO and its purpose is to "
 "get the value of the field, either from a template like generic agent "
@@ -6984,7 +6983,7 @@ msgid ""
 "front end module or screen."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1255
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1251
 msgid ""
 "There are two return formats for this function. The normal that is just "
 "the raw value or a structure that is the pair field name => field value. "
@@ -6993,7 +6992,7 @@ msgid ""
 "date in the hash."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1257
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1253
 msgid ""
 "If the result should be a structure then, normally this is used to store "
 "its values in a template, like a generic agent profile. For example a "
@@ -7001,7 +7000,7 @@ msgid ""
 " checkbox and selects for year, month, day etc."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1264
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1260
 msgid ""
 "This function should provide at least a method to validate if the field "
 "is empty, and return an error if the field is empty and mandatory, but it"
@@ -7010,7 +7009,7 @@ msgid ""
 " can provide a custom error message also."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1270
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1266
 msgid ""
 "This function is used by ticket search dialog and it is similar to "
 "``EditFieldRander()``, but normally on a search screen small changes has "
@@ -7020,13 +7019,13 @@ msgid ""
 "than one value at a time."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1276
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1272
 msgid ""
 "Very similar to ``EditFieldValueGet()``, but uses a different name "
 "prefix, adapted for the search dialog screen."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1282
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1278
 msgid ""
 "This function is used also by the ticket search dialog to set the correct"
 " operator and value to do the search on this field. It also returns how "
@@ -7034,7 +7033,7 @@ msgid ""
 "results page."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1288
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1284
 msgid ""
 "This function is used by the stats modules. It includes the field "
 "definition in the stats format. For fields with fixed values it also "
@@ -7043,25 +7042,25 @@ msgid ""
 "those."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1294
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1290
 msgid ""
 "This function is very similar to the ``SearchFieldParameterBuild()``. The"
 " difference is that the latter gets the value from the search profile and"
 " this one gets the value directly from its parameters."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1297
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1293
 msgid "This function is used by statistics module."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1303
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1299
 msgid ""
 "This function is used to know how the dynamic field values stored on a "
 "profile should be retrieved, as a scalar or as an array, and it also "
 "defines the correct name of the field in the profile."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1309
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1305
 msgid ""
 "This function is used by ``otobo.FillDB.pl`` script to populate the "
 "database with some test and random data. The value inserted by this "
@@ -7069,7 +7068,7 @@ msgid ""
 "must be compatible with the field value type."
 msgstr ""
 
-#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1315
+#: ../../content/how-to-extend-otobo/otobo-module-layers/dynamic-fields/dynamic-fields-new-field.rst:1311
 msgid ""
 "Used by the notification modules. This function returns 1 if the field is"
 " present in the ``$Param{ObjectAttributes}`` parameter and if it matches "
@@ -11274,5 +11273,16 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "You can replace old code like:"
+#~ msgstr ""
+
+#~ msgid "2020 - OTOBO Development Tutorial - Rother OSS GmbH (https://otobo.de)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Published by: Rother OSS GmbH, "
+#~ "(https://otobo.de), Oberwalting 31, 94339 "
+#~ "Leiblfing, Germany. Authors: OTRS AG "
+#~ "(original version), Rother OSS GmbH "
+#~ "(https://otobo.de)"
 #~ msgstr ""
 
