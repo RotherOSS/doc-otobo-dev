@@ -1,5 +1,5 @@
 Writing A New OTOBO Front End Module
-===================================
+====================================
 
 In this chapter, the writing of a new OTOBO module is illustrated on the basis of a simple small program. Necessary prerequisite is an OTOBO development environment as specified in the chapter of the same name.
 
