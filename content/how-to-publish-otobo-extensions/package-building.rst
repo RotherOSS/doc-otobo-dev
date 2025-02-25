@@ -402,11 +402,13 @@ To build an .opm package from the spec opm.
 
 ::
 
-   shell> bin/otobo.Console.pl Dev::Package::Build /path/to/example.sopm /tmp
+   shell> bin/otobo.Console.pl Dev::Package::Build --module-directory /path/to/package/folder /path/to/example.sopm /tmp
    Building package...
    Done.
    shell>
 
+.. note::
+   By default, i.e. without setting the ``--module-directory`` parameter, the ``Package::Build`` command will take the files specified in the .sopm relative to ``/opt/otobo``.
 
 Package Life Cycle
 ------------------
