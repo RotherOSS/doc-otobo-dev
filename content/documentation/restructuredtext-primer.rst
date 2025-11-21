@@ -3,7 +3,7 @@ reStructuredText Primer
 
 The documentation format name is **reStructuredText** (one word, this is the correct spelling). This is an easy to read documentation format using plain text and small inline markers.
 
-This short tutorial will guide you through to create or update documentations. To give a full featured tutorial about how to use the *reStructuredText* format is beyond the scope of this document, and many tutorials (e. g. `Sphinx reStructuredText primer <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__ and `reStructuredText user documentation <http://docutils.sourceforge.net/rst.html>`__) and `on-line editors <http://rst.ninjs.org>`__ are available on the internet.
+This short tutorial will guide you through to create or update documentations. To give a full featured tutorial about how to use the *reStructuredText* format is beyond the scope of this document, and many tutorials (e. g. `Sphinx reStructuredText primer <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__ and `reStructuredText user documentation <http://docutils.sourceforge.net/rst.html>`__) and on-line editors are available on the internet.
 
 The following examples shows the most commonly used documentation elements.
 
@@ -181,7 +181,7 @@ To create referenced links, you have to separate the text and the link. Example:
 
    The documentations are available in the `OTOBO documentation portal`_.
 
-   .. _OTOBO documentation portal: https://doc.otobo.de/
+   .. _OTOBO documentation portal: https://doc.otobo.org/
 
 
 Images

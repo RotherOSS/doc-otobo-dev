@@ -166,7 +166,7 @@ The custom translation file is read out last and so its translation which will b
 The Translation Process Itself
 ------------------------------
 
-OTOBO uses `Weblate <https://translate.otobo.de/>`__ to manage the translation process. Please see :doc:`../contributing/translate` section for details.
+OTOBO uses `Weblate <https://translate.otobo.org/>`__ to manage the translation process. Please see :doc:`../contributing/translate` section for details.
 
 
 Using The Translated Data From The Code
