@@ -3115,7 +3115,7 @@ msgid "Basic Operation"
 msgstr ""
 
 #: ../../content/how-it-works/loader.rst:34
-msgid "With the configuration settings ``Loader::Enabled::CSS`` and ``Loader::Enabled::JavaScript``, the loader can be turned on and off for CSS and JavaScript, respectively (it is on by default)."
+msgid "With the configuration settings ``Loader::Enabled::CSS`` and ``Loader::Enabled::JS``, the loader can be turned on and off for CSS and JavaScript, respectively (it is on by default)."
 msgstr ""
 
 #: ../../content/how-it-works/loader.rst:36
