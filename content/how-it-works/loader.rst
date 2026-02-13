@@ -21,7 +21,7 @@ Of course, there is a little bit more detailed involved, but this should suffice
 Basic Operation
 ---------------
 
-With the configuration settings ``Loader::Enabled::CSS`` and ``Loader::Enabled::JavaScript``, the loader can be turned on and off for CSS and JavaScript, respectively (it is on by default).
+With the configuration settings ``Loader::Enabled::CSS`` and ``Loader::Enabled::JS``, the loader can be turned on and off for CSS and JavaScript, respectively (it is on by default).
 
 To learn about how the loader works, please turn it off in your OTOBO installation with the aforementioned configuration settings. Now look at the source code of the application module that you are currently using in this OTOBO system (after a reload, of course). You will see that there are many CSS files loaded in the ``<head>`` section of the page, and many JavaScript files at the bottom of the page, just before the closing ``</body>`` element.
 
