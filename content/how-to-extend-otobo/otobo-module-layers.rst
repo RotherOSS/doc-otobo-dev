@@ -28,7 +28,7 @@ OTOBO has a large number of so-called *module layers* which make it very easy to
    otobo-module-layers/outputfilter
    otobo-module-layers/stats
    otobo-module-layers/ticketnumber-generator
-   otobo-module-layers/ticketevent
+   otobo-module-layers/events
 
 .. toctree::
    :maxdepth: 3
