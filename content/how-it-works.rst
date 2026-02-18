@@ -14,3 +14,4 @@ OTOBO Internals - How it Works
    how-it-works/templates
    how-it-works/themes
    how-it-works/translations
+   how-it-works/async-mechanism
