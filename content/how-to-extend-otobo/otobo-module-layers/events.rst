@@ -256,6 +256,7 @@ Common approaches:
         It may need adjustments based on your specific installation and event naming conventions.
     
         .. code-block:: bash
+         
             rg -n --hidden --follow "\bEvent\s*=>\s*'[^']+'" Kernel Custom 2>/dev/null | sed -E "s/.*\bEvent\s*=>\s*'([^']+)'.*/\1/" | sort -u
 
 Best Practices for Event Modules
