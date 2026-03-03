@@ -95,9 +95,9 @@ SELECT statement
 
     # loops can alse be avoided with SelectAll()
     # SelectAll() returns a reference to an array of array references
-    my @ValidIds = map { $_->[0] } $DBObject->SelectAll(
+    my @ValidIds = map { $_->[0] } @{ $DBObject->SelectAll(
         SQL => q{SELECT DESTINCT valid_id FROM transaction_steps ORDER BY valid_id ASC},
-    )->@*;
+    ) };
 
 .. note::
 
