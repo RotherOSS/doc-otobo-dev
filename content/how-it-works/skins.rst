@@ -101,6 +101,10 @@ There are only three simple steps we need to take to achieve this goal:
 
 Let's start by creating the files needed for our new skin. First of all, we need to create a new folder for this skin (we'll call it ``custom``). This folder will be ``$OTOBO_HOME/var/httpd/htdocs/skins/Agent/custom``.
 
+.. note::
+
+   For creating skins for the customer interface, the path would be ``$OTOBO_HOME/var/httpd/htdocs/skins/Customer/$SKIN_NAME``.
+
 In there, we need to place the new CSS file in a new directory ``css`` which defines the new skin's appearance. We'll call it ``Core.Default.css``. Remember that it must have the same name as one of the files in the default skin. This is the code needed for the CSS file:
 
 .. code-block:: CSS
