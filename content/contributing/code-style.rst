@@ -11,7 +11,8 @@ Perl
 Whitespace
 ~~~~~~~~~~
 
-TAB: We use 4 spaces. Examples for braces:
+TAB: We use 4 spaces.
+Examples for braces:
 
 .. code-block:: Perl
 
@@ -53,7 +54,8 @@ If there is just one single variable, the parenthesis enclose the variable with 
 
    if ( $Condition ) { ... }
 
-If the condition is not just one single variable, we use spaces between the parenthesis and the condition. And there is still the space between the keyword (e.g. ``if``) and the opening parenthesis.
+If the condition is not just one single variable, we use spaces between the parenthesis and the condition.
+And there is still the space between the keyword (e.g., ``if``) and the opening parenthesis.
 
 .. code-block:: Perl
 
@@ -69,7 +71,8 @@ Note that for Perl builtin functions, we do not use parentheses:
 Source Code Header and Charset
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Attach the following header to every source file. Source files are saved in UTF-8 charset.
+Attach the following header to every source file.
+Source files are saved in UTF-8 charset.
 
 .. code-block:: Perl
 
@@ -107,9 +110,11 @@ Executable files (``*.pl``) have a special header.
 Conditions
 ~~~~~~~~~~
 
-Conditions can be quite complex and there can be *chained* conditions (linked with logical *or* or *and* operations). When coding for OTOBO, you have to be aware of several situations.
+Conditions can be quite complex and there can be *chained* conditions (linked with logical *or* or *and* operations).
+When coding for OTOBO, you have to be aware of several situations.
 
-Perl best practices says, that high precedence operators (``&&`` and ``||``) shouldn't mixed up with low precedence operators (``and`` and ``or``). To avoid confusion, we always use the high precedence operators.
+Perl best practices says, that high precedence operators (``&&`` and ``||``) shouldn't mixed up with low precedence operators (``and`` and ``or``).
+To avoid confusion, we always use the high precedence operators.
 
 .. code-block:: Perl
 
@@ -119,9 +124,11 @@ Perl best practices says, that high precedence operators (``&&`` and ``||``) sho
 
    if ( $Condition and $Condition2 ) { ... }
 
-This means that you have to be aware of traps. Sometimes you need to use parenthesis to make clear what you want.
+This means that you have to be aware of traps.
+Sometimes you need to use parenthesis to make clear what you want.
 
-If you have long conditions (line is longer than 120 characters over all), you have to break it in several lines. And the start of the conditions is in a new line (not in the line of the ``if``).
+If you have long conditions (line is longer than 120 characters over all), you have to break it in several lines.
+And the start of the conditions is in a new line (not in the line of the ``if``).
 
 .. code-block:: Perl
 
@@ -138,7 +145,8 @@ If you have long conditions (line is longer than 120 characters over all), you h
        )
    { ... }
 
-Also note, that the right parenthesis is in a line on its own and the left curly bracket is also in a new line and with the same indentation as the ``if``. The operators are at the beginning of a new line! The subsequent examples show how to do it.
+Also note, that the right parenthesis is in a line on its own and the left curly bracket is also in a new line and with the same indentation as the ``if``.
+The operators are at the beginning of a new line! The subsequent examples show how to do it.
 
 .. code-block:: Perl
 
@@ -174,7 +182,8 @@ Also note, that the right parenthesis is in a line on its own and the left curly
 Postfix ``if``
 ~~~~~~~~~~~~~~
 
-Generally we use *postfix ``if``* statements to reduce the number of levels. But we don't use it for multiline statements and is only allowed when involves return statements in functions or to end a loop or to go next iteration.
+Generally we use *postfix ``if``* statements to reduce the number of levels.
+But we don't use it for multiline statements and is only allowed when involves return statements in functions or to end a loop or to go next iteration.
 
 This is correct:
 
@@ -231,7 +240,9 @@ Some builtin subroutines of Perl may not be used in every place:
 Regular Expressions
 ~~~~~~~~~~~~~~~~~~~
 
-For regular expressions *in the source code*, we always use the ``m//`` operator with curly braces as delimiters. We also use the modifiers ``x``, ``m`` and ``s`` by default. The ``x`` modifier allows you to comment your regex and use spaces to visually separate logical groups.
+For regular expressions *in the source code*, we always use the ``m//`` operator with curly braces as delimiters.
+We also use the modifiers ``x``, ``m`` and ``s`` by default.
+The ``x`` modifier allows you to comment your regex and use spaces to visually separate logical groups.
 
 .. code-block:: Perl
 
@@ -244,9 +255,11 @@ For regular expressions *in the source code*, we always use the ``m//`` operator
        #..
    }xms;
 
-As the space no longer has a special meaning, you have to use a single character class to match a single space (``[ ]``). If you want to match any whitespace you can use ``\s``.
+As the space no longer has a special meaning, you have to use a single character class to match a single space (``[ ]``).
+If you want to match any whitespace you can use ``\s``.
 
-In the regex, the dot (``.``) includes the newline (whereas in regex without ``s`` modifier the dot means 'everything but newline'). If you want to match anything but newline, you have to use the negated single character class (``[^\n]``).
+In the regex, the dot (``.``) includes the newline (whereas in regex without ``s`` modifier the dot means 'everything but newline').
+If you want to match anything but newline, you have to use the negated single character class (``[^\n]``).
 
 .. code-block:: Perl
 
@@ -256,11 +269,14 @@ In the regex, the dot (``.``) includes the newline (whereas in regex without ``s
        Regex
    }xms;
 
-An exception to the convention above applies to all cases where regular expressions are not written statically in the code but instead are *supplied by users* in one form or another (for example via system configuration or in a Postmaster filter configuration). Any evaluation of such a regular expression has to be done without any modifiers (e.g. ``$Variable =~ m{$Regex}``) in order to match the expectation of (mostly inexperienced) users and also to be backwards compatible.
+An exception to the convention above applies to all cases where regular expressions are not written statically in the code but instead are *supplied by users* in one form or another (for example via system configuration or in a Postmaster filter configuration).
+Any evaluation of such a regular expression has to be done without any modifiers (e.g., ``$Variable =~ m{$Regex}``) in order to match the expectation of (mostly inexperienced) users and also to be backwards compatible.
 
-If modifiers are strictly necessary for user supplied regular expressions, it is always possible to use embedded modifiers (e.g. ``(?:(?i)SmAlL oR lArGe)``). For details, please see `perlretut <http://perldoc.perl.org/perlretut.html#Embedding-comments-and-modifiers-in-a-regular-expression>`__.
+If modifiers are strictly necessary for user supplied regular expressions, it is always possible to use embedded modifiers (e.g., ``(?:(?i)SmAlL oR lArGe)``).
+For details, please see `perlretut <http://perldoc.perl.org/perlretut.html#Embedding-comments-and-modifiers-in-a-regular-expression>`__.
 
-Usage of the ``r`` modifier is encouraged, e.g. if you need to extract part of a string into another variable. This modifier keeps the matched variable intact and instead provides the substitution result as a return value.
+Usage of the ``r`` modifier is encouraged, e.g., if you need to extract part of a string into another variable.
+This modifier keeps the matched variable intact and instead provides the substitution result as a return value.
 
 Use this:
 
@@ -307,7 +323,8 @@ If you want to match for start and end of a **string**, you should generally use
        \z                      # end of the string
    }xms;
 
-Usage of named capture groups is also encouraged, particularly for multi-matches. Named capture groups are easier to read/understand, prevent mix-ups when matching more than one capture group and allow extension without accidentally introducing bugs.
+Usage of named capture groups is also encouraged, particularly for multi-matches.
+Named capture groups are easier to read/understand, prevent mix-ups when matching more than one capture group and allow extension without accidentally introducing bugs.
 
 Use this:
 
@@ -353,9 +370,13 @@ Instead of this:
 Naming
 ~~~~~~
 
-Names and comments are written in English. Variables, objects and methods must be descriptive nouns or noun phrases with the first letter set upper case (`CamelCase <https://en.wikipedia.org/wiki/CamelCase>`__).
+Names and comments are written in English.
+Variables, objects and methods must be descriptive nouns or noun phrases with the first letter set upper case (`CamelCase <https://en.wikipedia.org/wiki/CamelCase>`__).
 
-Names should be as descriptive as possible. A reader should be able to say what is meant by a name without digging too deep into the code. E.g. use ``$ConfigItemID`` instead of ``$ID``. Examples: ``@TicketIDs``, ``$Output``, ``StateSet()``, etc.
+Names should be as descriptive as possible.
+A reader should be able to say what is meant by a name without digging too deep into the code.
+E.g., use ``$ConfigItemID`` instead of ``$ID``.
+Examples: ``@TicketIDs``, ``$Output``, ``StateSet()``, etc.
 
 
 Variable Declaration
@@ -399,9 +420,11 @@ Otherwise you would get an *uninitialized* warning.
 Handling of Parameters
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To fetch the parameters passed to subroutines, OTOBO normally uses the hash ``%Param`` (not ``%Params``). This leads to more readable code as every time we use ``%Param`` in the subroutine code we know it is the parameter hash passed to the subroutine.
+To fetch the parameters passed to subroutines, OTOBO normally uses the hash ``%Param`` (not ``%Params``).
+This leads to more readable code as every time we use ``%Param`` in the subroutine code we know it is the parameter hash passed to the subroutine.
 
-Just in some exceptions a regular list of parameters should be used. So we want to avoid something like this:
+Just in some exceptions a regular list of parameters should be used.
+So we want to avoid something like this:
 
 .. code-block:: Perl
 
@@ -447,7 +470,8 @@ Instead of this:
 ``return`` Statements
 ~~~~~~~~~~~~~~~~~~~~~
 
-Subroutines have to have a ``return`` statement. The explicit ``return`` statement is preferred over the implicit way (result of last statement in subroutine) as this clarifies what the subroutine returns.
+Subroutines have to have a ``return`` statement.
+The explicit ``return`` statement is preferred over the implicit way (result of last statement in subroutine) as this clarifies what the subroutine returns.
 
 .. code-block:: Perl
 
@@ -466,7 +490,8 @@ Explicit return values means that you should not have a ``return`` statement fol
 
    return $Self->{DBObject}->Do( ... );
 
-The following example is better as this says explicitly what is returned. With the example above the reader doesn't know what the return value is as he might not know what ``Do()`` returns.
+The following example is better as this says explicitly what is returned.
+With the example above the reader doesn't know what the return value is as he might not know what ``Do()`` returns.
 
 .. code-block:: Perl
 
@@ -514,7 +539,8 @@ This is wrong:
 Objects and Their Allocation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In OTOBO many objects are available. But you should not use every object in every file to keep the front end/back end separation.
+In OTOBO many objects are available.
+But you should not use every object in every file to keep the front end/back end separation.
 
 -  Don't use the ``LayoutObject`` in core modules (``Kernel/System``).
 -  Don't use the ``ParamObject`` in core modules (``Kernel/System``).
@@ -595,13 +621,17 @@ Documenting Back End Modules
 Documenting Subroutines
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Subroutines should always be documented. The documentation contains a general description about what the subroutine does, a sample subroutine call and what the subroutine returns. It should be in this order. A sample documentation looks like this:
+Subroutines should always be documented.
+The documentation contains a general description about what the subroutine does, a sample subroutine call and what the subroutine returns.
+It should be in this order.
+A sample documentation looks like this:
 
 .. code-block:: Perl
 
    =head2 LastTimeObjectChanged()
 
-   Calculates the last time the object was changed. It returns a hash reference with
+   Calculates the last time the object was changed.
+       It returns a hash reference with
        information about the object and the time.
 
        my $Info = $Object->LastTimeObjectChanged(
@@ -624,7 +654,9 @@ You can copy and paste a ``Data::Dumper`` output for the return values.
 Code Comments in Perl
 ~~~~~~~~~~~~~~~~~~~~~
 
-In general, you should try to write your code as readable and self-explaining as possible. Don't write a comment to explain what obvious code does, this is unnecessary duplication. Good comments should explain **why** there is some code, possible side effects and anything that might be special or unusually complicated about the code.
+In general, you should try to write your code as readable and self-explaining as possible.
+Don't write a comment to explain what obvious code does, this is unnecessary duplication.
+Good comments should explain **why** there is some code, possible side effects and anything that might be special or unusually complicated about the code.
 
 Please adhere to the following guidelines:
 
@@ -642,13 +674,15 @@ Don't say what the code says (DRY -> Don't repeat yourself).
       my $ConfigObject = $Kernel::OM->Get('Kernel::Config');
 
 Document **why** the code is there, not how it works.
-   Usually, code comments should explain the *purpose* of code, not how it works in detail. There might be exceptions for specially complicated code, but in this case also a refactoring to make it more readable could be commendable.
+   Usually, code comments should explain the *purpose* of code, not how it works in detail.
+   There might be exceptions for specially complicated code, but in this case also a refactoring to make it more readable could be commendable.
 
 Document pitfalls.
    Everything that is unclear, tricky or that puzzled you during development should be documented.
 
 Use full-line sentence-style comments to document algorithm paragraphs.
-   Always use full sentences (uppercase first letter and final period). Subsequent lines of a sentence should be indented.
+   Always use full sentences (uppercase first letter and final period).
+   Subsequent lines of a sentence should be indented.
 
    .. code-block:: Perl
 
@@ -679,7 +713,8 @@ Use short end-of-line comments to add detail information.
 Declaration of SQL Statements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If there is no chance for changing the SQL statement, it should be used in the ``Prepare`` function. The reason for this is, that the SQL statement and the bind parameters are closer to each other. 
+If there is no chance for changing the SQL statement, it should be used in the ``Prepare`` function.
+The reason for this is, that the SQL statement and the bind parameters are closer to each other.
 
 The SQL statement should be written as one nicely indented string without concatenation like this:
 
@@ -696,13 +731,15 @@ The SQL statement should be written as one nicely indented string without concat
        Bind => [ \$Param{TicketID}, \$Param{SenderType} ],
    );
 
-This is easy to read and modify, and the whitespace can be handled well by our supported DBMSs. For auto-generated SQL code (like in ``TicketSearch``), this indentation is not necessary.
+This is easy to read and modify, and the whitespace can be handled well by our supported DBMSs.
+For auto-generated SQL code (like in ``TicketSearch``), this indentation is not necessary.
 
 
 Returning on Errors
 ~~~~~~~~~~~~~~~~~~~
 
-Whenever you use database functions you should handle errors. If anything goes wrong, return from subroutine:
+Whenever you use database functions you should handle errors.
+If anything goes wrong, return from subroutine:
 
 .. code-block:: Perl
 
@@ -732,7 +769,8 @@ Always use the ``while`` loop, even when you expect one row to be returned, as s
 JavaScript
 ----------
 
-All JavaScript is loaded in all browsers (no browser hacks in the template files). The code is responsible to decide if it has to skip or execute certain parts of itself only in certain browsers.
+All JavaScript is loaded in all browsers (no browser hacks in the template files).
+The code is responsible to decide if it has to skip or execute certain parts of itself only in certain browsers.
 
 
 Directory Structure
@@ -754,7 +792,8 @@ Directory structure inside the ``var/httpd/htdocs/js/`` folder:
 Thirdparty Code
 ~~~~~~~~~~~~~~~
 
-Every thirdparty module gets its own subdirectory: *module name-version number* (e.g. ckeditor-4.7.0, jquery-3.2.1). Inside of that, file names should not have a version number or postfix included (wrong: ``jquery/jquery-3.2.1.min.js``, right: ``jquery-3.2.1/jquery.js``).
+Every thirdparty module gets its own subdirectory: *module name-version number* (e.g., ckeditor-4.7.0, jquery-3.2.1).
+Inside of that, file names should not have a version number or postfix included (wrong: ``jquery/jquery-3.2.1.min.js``, right: ``jquery-3.2.1/jquery.js``).
 
 
 JavaScript Variables
@@ -800,15 +839,21 @@ Make sure to use ``$.on()`` with namespacing, such as ``$.on('click.<Name>')``.
 HTML
 ----
 
-Use HTML 5 notation. Don't use self-closing tags for non-void elements (such as ``div``, ``span``, etc.).
+Use HTML 5 notation.
+Don't use self-closing tags for non-void elements (such as ``div``, ``span``, etc.).
 
-Use proper intendation. Elements which contain other non-void child elements should not be on the same level as their children.
+Use proper intendation.
+Elements which contain other non-void child elements should not be on the same level as their children.
 
-Don't use HTML elements for layout reasons (e.g. using ``br`` elements for adding space to the top or bottom of other elements). Use the proper CSS classes instead.
+Don't use HTML elements for layout reasons (e.g., using ``br`` elements for adding space to the top or bottom of other elements).
+Use the proper CSS classes instead.
 
-Don't use inline CSS. All CSS should either be added by using predefined classes or (if necessary) using JavaScript (e.g. for showing/hiding elements).
+Don't use inline CSS.
+All CSS should either be added by using predefined classes or (if necessary) using JavaScript (e.g., for showing/hiding elements).
 
-Don't use JavaScript in templates. All needed JavaScript should be part of the proper library for a certain front end module or of a proper global library. If you need to pass JavaScript data to the front end, use ``$LayoutObject->AddJSData()``.
+Don't use JavaScript in templates.
+All needed JavaScript should be part of the proper library for a certain front end module or of a proper global library.
+If you need to pass JavaScript data to the front end, use ``$LayoutObject->AddJSData()``.
 
 
 CSS
@@ -820,15 +865,18 @@ The layout is liquid, which means that if the screen is wider, the space will be
 
 Absolute size measurements should be specified in px to have a consistent look on many platforms and browsers.
 
-Documentation is made with CSSDOC (see CSS files for examples). All logical blocks should have a CSSDOC comment.
+Documentation is made with CSSDOC (see CSS files for examples).
+All logical blocks should have a CSSDOC comment.
 
 
 CSS Architecture
 ~~~~~~~~~~~~~~~~
 
-We follow the `Object Oriented CSS <https://github.com/stubbornella/oocss/wiki>`__ approach. In essence, this means that the layout is achieved by combining different generic building blocks to realize a particular design.
+We follow the `Object Oriented CSS <https://github.com/stubbornella/oocss/wiki>`__ approach.
+In essence, this means that the layout is achieved by combining different generic building blocks to realize a particular design.
 
-Wherever possible, module specific design should not be used. Therefore we also do not work with IDs on the ``body`` element, for example, if it can be avoided.
+Wherever possible, module specific design should not be used.
+Therefore we also do not work with IDs on the ``body`` element, for example, if it can be avoided.
 
 
 CSS Style
@@ -858,7 +906,7 @@ See the following example:
           width: 10px;
       }
 
-- If rules are combinable, combine them (e.g. combine ``background-position``, ``background-image``, etc. into ``background``).
+- If rules are combinable, combine them (e.g., combine ``background-position``, ``background-image``, etc. into ``background``).
 
 - Rules should be in a logical order within a definition (all color specific rule together, all positioning rules together, etc.).
 - All IDs and names are written in CamelCase notation:

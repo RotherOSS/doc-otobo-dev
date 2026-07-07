@@ -7,7 +7,9 @@ If you want to create an OPM package (``.opm``) you need to create a spec file (
 Package Spec File
 -----------------
 
-The OPM package is XML based. You can create/edit the ``.sopm`` via a text or XML editor. It contains meta data, a file list and database options.
+The OPM package is XML based.
+You can create/edit the ``.sopm`` via a text or XML editor.
+It contains meta data, a file list and database options.
 
 ``<Name>`` \*
    The package name.
@@ -29,7 +31,7 @@ The OPM package is XML based. You can create/edit the ``.sopm`` via a text or XM
    .. code-block:: XML
 
       <Framework>7.0.x</Framework>
-                   
+
    Can also be used several times.
 
    .. code-block:: XML
@@ -76,7 +78,8 @@ The OPM package is XML based. You can create/edit the ``.sopm`` via a text or XM
       <Description Lang="de">Ein Web Kalender.</Description>
 
 Package Actions
-   The possible actions for the package after installation. If one of these actions is not defined on the package, it will be considered as possible.
+   The possible actions for the package after installation.
+   If one of these actions is not defined on the package, it will be considered as possible.
 
    .. code-block:: XML
 
@@ -84,7 +87,8 @@ Package Actions
       <PackageIsDownloadable>0</PackageIsDownloadable>
       <PackageIsRemovable>1</PackageIsRemovable>
 
-   A special package action is ``PackageAllowDirectUpdate``. Only if it is defined on the package and set to true, a package can be upgraded from a lower major version (earlier than the last one) to the latest version. (e.g. a package for OTOBO 5 updated to OTOBO 7).
+   A special package action is ``PackageAllowDirectUpdate``.
+   Only if it is defined on the package and set to true, a package can be upgraded from a lower major version (earlier than the last one) to the latest version (e.g., a package for OTOBO 5 updated to OTOBO 7).
 
    .. code-block:: XML
 
@@ -105,7 +109,8 @@ Package Actions
       <BuildDate>?</BuildDate>
 
 ``<PackageRequired>``
-   Packages that must be installed beforehand. If ``PackageRequired`` is used, a version of the required package must be specified.
+   Packages that must be installed beforehand.
+   If ``PackageRequired`` is used, a version of the required package must be specified.
 
    .. code-block:: XML
 
@@ -168,7 +173,7 @@ Package Actions
 ``<DatabaseUpgrade>``
    Information on which actions have to be performed in case of an upgrade.
 
-   Example if already installed package version is below 1.3.4 (e. g. 1.2.6), the defined action will be performed:
+   Example if already installed package version is below 1.3.4 (e.g., 1.2.6), the defined action will be performed:
 
    .. code-block:: XML
 
@@ -188,7 +193,8 @@ Package Actions
 
       <DatabaseReinstall></DatabaseReinstall>
 
-   You also can choose ``<DatabaseReinstall Type="post">`` or ``<DatabaseReinstall Type="pre">`` to define the time of execution separately (``post`` is default). For more info see :ref:`Package Life Cycle`.
+   You also can choose ``<DatabaseReinstall Type="post">`` or ``<DatabaseReinstall Type="pre">`` to define the time of execution separately (``post`` is default).
+   For more info see :ref:`Package Life Cycle`.
 
 ``<DatabaseUninstall>``
    Actions to be performed on package uninstall.
@@ -199,7 +205,8 @@ Package Actions
           <TableDrop Name="calendar_event" />
       </DatabaseUninstall>
 
-   You also can choose ``<DatabaseUninstall Type="post">`` or ``<DatabaseUninstall Type="pre">`` to define the time of execution separately (``post`` is default). For more info see :ref:`Package Life Cycle`.
+   You also can choose ``<DatabaseUninstall Type="post">`` or ``<DatabaseUninstall Type="pre">`` to define the time of execution separately (``post`` is default).
+   For more info see :ref:`Package Life Cycle`.
 
 ``<IntroInstall>``
    To show a pre or post install introduction in installation dialog.
@@ -261,10 +268,12 @@ Package Actions
       $Kernel::OM->Get('Kernel::System::DB')->Do(SQL => "SOME SQL");
       ]]></CodeInstall>
 
-You also can choose ``<CodeInstall Type="post">`` or ``<CodeInstall Type="pre">`` to define the time of execution separately (``post`` is default). For more info see :ref:`Package Life Cycle`.
+You also can choose ``<CodeInstall Type="post">`` or ``<CodeInstall Type="pre">`` to define the time of execution separately (``post`` is default).
+For more info see :ref:`Package Life Cycle`.
 
 ``<CodeUninstall>``
-   Perl code to be executed when the package is uninstalled. On pre or post time of package uninstallation.
+   Perl code to be executed when the package is uninstalled.
+   On pre or post time of package uninstallation.
 
    .. code-block:: XML
 
@@ -272,7 +281,8 @@ You also can choose ``<CodeInstall Type="post">`` or ``<CodeInstall Type="pre">`
       # Some Perl code.
       ]]></CodeUninstall>
 
-   You also can choose ``<CodeUninstall Type="post">`` or ``<CodeUninstall Type="pre">`` to define the time of execution separately (``post`` is default). For more info see :ref:`Package Life Cycle`.
+   You also can choose ``<CodeUninstall Type="post">`` or ``<CodeUninstall Type="pre">`` to define the time of execution separately (``post`` is default).
+   For more info see :ref:`Package Life Cycle`.
 
 ``<CodeReinstall>``
    Perl code to be executed when the package is reinstalled.
@@ -283,12 +293,13 @@ You also can choose ``<CodeInstall Type="post">`` or ``<CodeInstall Type="pre">`
       # Some Perl code.
       ]]></CodeReinstall>
 
-   You also can choose ``<CodeReinstall Type="post">`` or ``<CodeReinstall Type="pre">`` to define the time of execution separately (``post`` is default). For more info see :ref:`Package Life Cycle`.
+   You also can choose ``<CodeReinstall Type="post">`` or ``<CodeReinstall Type="pre">`` to define the time of execution separately (``post`` is default).
+   For more info see :ref:`Package Life Cycle`.
 
 ``<CodeUpgrade>``
    Perl code to be executed when the package is upgraded (subject to ``version`` tag).
 
-   Example if already installed package version is below 1.3.4 (e. g. 1.2.6), the defined action will be performed:
+   Example if already installed package version is below 1.3.4 (e.g., 1.2.6), the defined action will be performed:
 
    .. code-block:: XML
 
@@ -296,10 +307,12 @@ You also can choose ``<CodeInstall Type="post">`` or ``<CodeInstall Type="pre">`
       # Some Perl code.
       ]]></CodeUpgrade>
 
-   You also can choose ``<CodeUpgrade Type="post">`` or ``<CodeUpgrade Type="pre">`` to define the time of execution separately (``post`` is default). For more info see :ref:`Package Life Cycle`.
+   You also can choose ``<CodeUpgrade Type="post">`` or ``<CodeUpgrade Type="pre">`` to define the time of execution separately (``post`` is default).
+   For more info see :ref:`Package Life Cycle`.
 
 ``<PackageMerge>``
-   This tag signals that a package has been merged into another package. In this case the original package needs to be removed from the file system and the packages database, but all data must be kept.
+   This tag signals that a package has been merged into another package.
+   In this case the original package needs to be removed from the file system and the packages database, but all data must be kept.
 
    Let's assume that ``PackageOne`` was merged into ``PackageTwo``. Then ``PackageTwo.sopm`` should contain this:
 
@@ -307,9 +320,12 @@ You also can choose ``<CodeInstall Type="post">`` or ``<CodeInstall Type="pre">`
 
       <PackageMerge Name="MergeOne" TargetVersion="2.0.0"></PackageMerge>
 
-   If ``PackageOne`` also contained database structures, we need to be sure that it was at the latest available version of the package to have a consistent state in the database after merging the package. The attribute ``TargetVersion`` does just this: it signifies the last known version of ``PackageOne`` at the time ``PackageTwo`` was created. This is mainly to stop the upgrade process if in the user's system a version of ``PackageOne`` was found that is *newer* than the one specified in ``TargetVersion`` as this could lead to problems.
+   If ``PackageOne`` also contained database structures, we need to be sure that it was at the latest available version of the package to have a consistent state in the database after merging the package.
+   The attribute ``TargetVersion`` does just this: it signifies the last known version of ``PackageOne`` at the time ``PackageTwo`` was created.
+   This is mainly to stop the upgrade process if in the user's system a version of ``PackageOne`` was found that is *newer* than the one specified in ``TargetVersion`` as this could lead to problems.
 
-   Additionally it is possible to add required database and code upgrade tags for ``PackageOne`` to make sure that it gets properly upgraded to the ``TargetVersion`` *before* merging it - to avoid inconsistency problems. Here's how this could look like:
+   Additionally, it is possible to add required database and code upgrade tags for ``PackageOne`` to make sure that it gets properly upgraded to the ``TargetVersion`` *before* merging it - to avoid inconsistency problems.
+   Here is how this may look like:
 
    .. code-block:: XML
 
@@ -322,12 +338,14 @@ You also can choose ``<CodeInstall Type="post">`` or ``<CodeInstall Type="pre">`
           </DatabaseUpgrade>
       </PackageMerge>
 
-   As you can see the attribute ``Type="merge"`` needs to be set in this case. These sections will only be executed if a package merge is possible.
+   As you can see the attribute ``Type="merge"`` needs to be set in this case.
+   These sections will only be executed if a package merge is possible.
 
 .. _package-conditions-ifpackage-ifnotpackage:
 
 Package Conditions
-   ``IfPackage`` and ``IfNotPackage`` attributes can be added to the regular ``Database*`` and ``Code*`` sections. If they are present, the section will only be executed if another package is or is not in the local package repository.
+   ``IfPackage`` and ``IfNotPackage`` attributes can be added to the regular ``Database*`` and ``Code*`` sections.
+   If they are present, the section will only be executed if another package is or is not in the local package repository.
 
    .. code-block:: XML
 

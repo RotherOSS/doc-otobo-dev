@@ -60,13 +60,13 @@ Often it suffices to modify existing code. This can by overriding the relevant s
     use warnings;
     use v5.24;
     use utf8;
-    
+
     use Kernel::System::State;
-    
+
     our @ObjectDependencies = (
         'Kernel::System::Log'
     );
-    
+
     {
         no warnings 'redefine';    ## no critic qw(TestingAndDebugging::ProhibitNoWarnings)
 

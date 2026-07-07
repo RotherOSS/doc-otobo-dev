@@ -1,12 +1,16 @@
 Ticket Postmaster Module
 ========================
 
-Postmaster modules are used during the postmaster process. There are two kinds of postmaster modules:
+Postmaster modules are used during the postmaster process.
+There are two kinds of postmaster modules:
 
 - ``PostMasterPre``: used after parsing an email.
 - ``PostMasterPost``: used after an email is processed and is in the database.
 
-If you want to create your own postmaster filter, just create your own module. These modules are located under ``Kernel/System/PostMaster/Filter/*.pm``. For default modules see the admin manual. You just need two functions: ``new()`` and ``Run()``.
+If you want to create your own postmaster filter, just create your own module.
+These modules are located under ``Kernel/System/PostMaster/Filter/*.pm``.
+For default modules see the admin manual.
+You just need two functions: ``new()`` and ``Run()``.
 
 The following is an exemplary module to match emails and set X-OTOBO-Headers (see ``doc/X-OTOBO-Headers.txt`` for more info).
 
@@ -42,9 +46,9 @@ And the actual filter code in ``Kernel/System/PostMaster/Filter/Example.pm``:
    # --
    # Copyright (C) 2019-2021 Rother OSS GmbH, https://otobo.de/
    # --
-   # This software comes with ABSOLUTELY NO WARRANTY. For details, see
-   # the enclosed file COPYING for license information (GPL). If you
-   # did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
+   # This software comes with ABSOLUTELY NO WARRANTY.
+   # For details, see the enclosed file COPYING for license information (GPL).
+   # If you, did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
    # --
 
    package Kernel::System::PostMaster::Filter::Example;

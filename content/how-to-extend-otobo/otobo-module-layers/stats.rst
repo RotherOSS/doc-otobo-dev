@@ -1,13 +1,16 @@
 Stats Module
 ============
 
-There are two different types of internal stats modules - dynamic and static. This section describes how such stats modules can be developed.
+There are two different types of internal stats modules - dynamic and static.
+This section describes how such stats modules can be developed.
 
 
 Dynamic Stats
 -------------
 
-In contrast to static stats modules, dynamic statistics can be configured via the OTOBO web interface. In this section a simple statistic module is developed. Each dynamic stats module has to implement these subroutines:
+In contrast to static stats modules, dynamic statistics can be configured via the OTOBO web interface.
+In this section a simple statistic module is developed.
+Each dynamic stats module has to implement these subroutines:
 
 -  ``new``
 -  ``GetObjectName``
@@ -15,7 +18,8 @@ In contrast to static stats modules, dynamic statistics can be configured via th
 -  ``ExportWrapper``
 -  ``ImportWrapper``
 
-Furthermore the module has to implement either ``GetStatElement`` or ``GetStatTable``. And if the header line of the result table should be changed, a sub called ``GetHeaderLine`` has to be developed.
+Furthermore the module has to implement either ``GetStatElement`` or ``GetStatTable``.
+And if the header line of the result table should be changed, a sub called ``GetHeaderLine`` has to be developed.
 
 
 Stats Code Example
@@ -28,9 +32,9 @@ In this section a sample stats module is shown and each subroutine is explained.
    # --
    # Copyright (C) 2019-2021 Rother OSS GmbH, https://otobo.de/
    # --
-   # This software comes with ABSOLUTELY NO WARRANTY. For details, see
-   # the enclosed file COPYING for license information (GPL). If you
-   # did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
+   # This software comes with ABSOLUTELY NO WARRANTY.
+   # For details, see the enclosed file COPYING for license information (GPL).
+   # If you did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
    # --
 
    package Kernel::System::Stats::Dynamic::DynamicStatsTemplate;
@@ -42,7 +46,9 @@ In this section a sample stats module is shown and each subroutine is explained.
    use Kernel::System::State;
    use Kernel::System::Ticket;
 
-This is a common boilerplate that can be found in common OTOBO modules. The class/package name is declared via the ``package`` keyword. Then the needed modules are used via the ``use`` keyword.
+This is a common boilerplate that can be found in common OTOBO modules.
+The class/package name is declared via the ``package`` keyword.
+Then the needed modules are used via the ``use`` keyword.
 
 .. code-block:: Perl
 
@@ -69,7 +75,12 @@ This is a common boilerplate that can be found in common OTOBO modules. The clas
        return $Self;
    }
 
-The ``new`` is the constructor for this statistic module. It creates a new instance of the class. According to the coding guidelines objects of other classes that are needed in this module have to be created in ``new``. In lines 27 to 29 the object of the stats module is created. Lines 31 to 37 check if objects that are needed in this code - either for creating other objects or in this module - are passed. After that the other objects are created.
+The ``new`` is the constructor for this statistic module.
+It creates a new instance of the class.
+According to the coding guidelines objects of other classes that are needed in this module have to be created in ``new``.
+In lines 27 to 29 the object of the stats module is created.
+Lines 31 to 37 check if objects that are needed in this code - either for creating other objects or in this module - are passed.
+After that the other objects are created.
 
 .. code-block:: Perl
 
@@ -79,7 +90,8 @@ The ``new`` is the constructor for this statistic module. It creates a new insta
        return 'Sample Statistics';
    }
 
-``GetObjectName`` returns a name for the statistics module. This is the label that is shown in the drop down in the configuration as well as in the list of existing statistics (column *object*).
+``GetObjectName`` returns a name for the statistics module.
+This is the label that is shown in the drop down in the configuration as well as in the list of existing statistics (column *object*).
 
 .. code-block:: Perl
 
@@ -138,9 +150,13 @@ The ``new`` is the constructor for this statistic module. It creates a new insta
        return @ObjectAttributes;
    }
 
-In this sample stats module, we want to provide three attributes the user can chose from: a list of queues, a list of states and a time drop down. To get the values shown in the drop down, some operations are needed. In this case ``StateList`` and ``GetAllQueues`` are called.
+In this sample stats module, we want to provide three attributes the user can chose from: a list of queues, a list of states and a time drop down.
+To get the values shown in the drop down, some operations are needed.
+In this case ``StateList`` and ``GetAllQueues`` are called.
 
-Then the list of attributes is created. Each attribute is defined via a hash reference. You can use these keys:
+Then the list of attributes is created.
+Each attribute is defined via a hash reference.
+You can use these keys:
 
 ``Name``
    The label in the web interface.
@@ -158,12 +174,14 @@ Then the list of attributes is created. Each attribute is defined via a hash ref
    The HTML field name.
 
 ``Block``
-   The block name in the template file (e.g. ``<OTOBO_HOME>/Kernel/Output/HTML/Standard/AgentStatsEditXaxis.tt``).
+   The block name in the template file (e.g., ``<OTOBO_HOME>/Kernel/Output/HTML/Standard/AgentStatsEditXaxis.tt``).
 
 ``Values``
    The values shown in the attribute.
 
-Hint: If you install this sample and you configure a statistic with some queues - lets say 'queue A' and 'queue B' - then these queues are the only ones that are shown to the user when he starts the statistic. Sometimes a dynamic drop down or multiselect field is needed. In this case, you can set ``SelectedValues`` in the definition of the attribute:
+Hint: If you install this sample and you configure a statistic with some queues - lets say 'queue A' and 'queue B' - then these queues are the only ones that are shown to the user when he starts the statistic.
+Sometimes a dynamic drop down or multiselect field is needed.
+In this case, you can set ``SelectedValues`` in the definition of the attribute:
 
 .. code-block:: Perl
 
@@ -194,7 +212,11 @@ Hint: If you install this sample and you configure a statistic with some queues 
        );
    }
 
-``GetStatElement`` gets called for each cell in the result table. So it should be a numeric value. In this sample it does a simple ticket search. The hash ``%Param`` contains information about the *current* x-value and the y-value as well as any restrictions. So, for a cell that should count the created tickets for queue *Misc* with state *open* the passed parameter hash looks something like this:
+``GetStatElement`` gets called for each cell in the result table.
+So it should be a numeric value.
+In this sample it does a simple ticket search.
+The hash ``%Param`` contains information about the *current* x-value and the y-value as well as any restrictions.
+So, for a cell that should count the created tickets for queue *Misc* with state *open* the passed parameter hash looks something like this:
 
 .. code-block:: Perl
 
@@ -205,7 +227,9 @@ Hint: If you install this sample and you configure a statistic with some queues 
            '2'
        ]
 
-If the *per cell* calculation should be avoided, ``GetStatTable`` is an alternative. ``GetStatTable`` returns a list of rows, hence an array of array references. This leads to the same result as using ``GetStatElement``.
+If the *per cell* calculation should be avoided, ``GetStatTable`` is an alternative.
+``GetStatTable`` returns a list of rows, hence an array of array references.
+This leads to the same result as using ``GetStatElement``.
 
 .. code-block:: Perl
 
@@ -234,7 +258,9 @@ If the *per cell* calculation should be avoided, ``GetStatTable`` is an alternat
        return @StatData;
    }
 
-``GetStatTable`` gets all information about the stats query that is needed. The passed parameters contain information about the attributes (``Restrictions``, attributes that are used for x/y-axis) and the table structure. The table structure is a hash reference where the keys are the values of the y-axis and their values are hash references with the parameters used for ``GetStatElement`` subroutines.
+``GetStatTable`` gets all information about the stats query that is needed.
+The passed parameters contain information about the attributes (``Restrictions``, attributes that are used for x/y-axis) and the table structure.
+The table structure is a hash reference where the keys are the values of the y-axis and their values are hash references with the parameters used for ``GetStatElement`` subroutines.
 
 .. code-block:: Perl
 
@@ -307,7 +333,10 @@ If the *per cell* calculation should be avoided, ``GetStatTable`` is an alternat
            }
        }
 
-Sometimes the headers of the table have to be changed. In that case, a subroutine called ``GetHeaderLine`` has to be implemented. That subroutine has to return an array reference with the column headers as elements. It gets information about the x-values passed.
+Sometimes the headers of the table have to be changed.
+In that case, a subroutine called ``GetHeaderLine`` has to be implemented.
+That subroutine has to return an array reference with the column headers as elements.
+It gets information about the x-values passed.
 
 .. code-block:: Perl
 
@@ -355,7 +384,10 @@ Sometimes the headers of the table have to be changed. In that case, a subroutin
        return \%Param;
    }
 
-Configured statistics can be exported into XML format. But as queues with the same queue names can have different IDs on different OTOBO instances it would be quite painful to export the IDs (the statistics would calculate the wrong numbers then). So an export wrapper should be written to use the names instead of ids. This should be done for each *dimension* of the stats module (x-axis, y-axis and restrictions).
+Configured statistics can be exported into XML format.
+But as queues with the same queue names can have different IDs on different OTOBO instances it would be quite painful to export the IDs (the statistics would calculate the wrong numbers then).
+So an export wrapper should be written to use the names instead of ids.
+This should be done for each *dimension* of the stats module (x-axis, y-axis and restrictions).
 
 ``ImportWrapper`` works the other way around - it converts the name to the ID in the instance the configuration is imported to.
 
@@ -402,9 +434,9 @@ Now, that all subroutines are explained, this is the complete sample stats modul
    # --
    # Copyright (C) 2019-2021 Rother OSS GmbH, https://otobo.de/
    # --
-   # This software comes with ABSOLUTELY NO WARRANTY. For details, see
-   # the enclosed file COPYING for license information (GPL). If you
-   # did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
+   # This software comes with ABSOLUTELY NO WARRANTY.
+   # For details, see the enclosed file COPYING for license information (GPL).
+   # If you did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
    # --
 
    package Kernel::System::Stats::Dynamic::DynamicStatsTemplate;
@@ -628,7 +660,8 @@ Stats Configuration Example
 Static Stats
 ------------
 
-The subsequent paragraphs describe the static stats. Static stats are very easy to create as these modules have to implement only three subroutines.
+The subsequent paragraphs describe the static stats.
+Static stats are very easy to create as these modules have to implement only three subroutines.
 
 -  ``new``
 -  ``Param``
@@ -666,7 +699,8 @@ The following paragraphs describe the subroutines needed in a static stats.
        return $Self;
    }
 
-The ``new`` creates a new instance of the static stats class. First it creates a new object and then it checks for the needed objects.
+The ``new`` creates a new instance of the static stats class.
+First it creates a new object and then it checks for the needed objects.
 
 .. code-block:: Perl
 
@@ -698,7 +732,8 @@ The ``new`` creates a new instance of the static stats class. First it creates a
        return @Params;
    }
 
-The ``Param`` method provides the list of all parameters/attributes that can be selected to create a static stat. It gets some parameters passed: The values for the stats attributes provided in a request, the format of the stats and the name of the object (name of the module).
+The ``Param`` method provides the list of all parameters/attributes that can be selected to create a static stat.
+It gets some parameters passed: The values for the stats attributes provided in a request, the format of the stats and the name of the object (name of the module).
 
 The parameters/attributes have to be hash references with these key-value pairs:
 
@@ -758,16 +793,21 @@ Other parameter for the ``BuildSelection`` method of the ``LayoutObject`` can be
        return ( [$Title], [@HeadData], @Data );
    }
 
-The ``Run`` method actually generates the table data for the stats. It gets the attributes for this stats passed. In this sample in ``%Param`` a key ``TypeIDs`` and a key ``QueueIDs`` exist (see attributes in ``Param`` method) and their values are array references. The returned data consists of three parts: Two array references and an array. In the first array reference the title for the statistic is stored, the second array reference contains the headlines for the columns in the table. And then the data for the table body follow.
+The ``Run`` method actually generates the table data for the stats.
+It gets the attributes for this stats passed.
+In this sample in ``%Param`` a key ``TypeIDs`` and a key ``QueueIDs`` exist (see attributes in ``Param`` method) and their values are array references.
+The returned data consists of three parts: Two array references and an array.
+In the first array reference the title for the statistic is stored, the second array reference contains the headlines for the columns in the table.
+And then the data for the table body follow.
 
 .. code-block:: Perl
 
    # --
    # Copyright (C) 2019-2021 Rother OSS GmbH, https://otobo.de/
    # --
-   # This software comes with ABSOLUTELY NO WARRANTY. For details, see
-   # the enclosed file COPYING for license information (GPL). If you
-   # did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
+   # This software comes with ABSOLUTELY NO WARRANTY.
+   # For details, see the enclosed file COPYING for license information (GPL).
+   # If you did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
    # --
 
    package Kernel::System::Stats::Static::StaticStatsTemplate;
@@ -960,4 +1000,5 @@ The ``Run`` method actually generates the table data for the stats. It gets the 
 Static Stats Configuration Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There is no configuration needed. Right after installation, the module is available to create a statistic for this module.
+There is no configuration needed.
+Right after installation, the module is available to create a statistic for this module.

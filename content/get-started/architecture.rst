@@ -1,14 +1,16 @@
 Architecture Overview
 =====================
 
-The OTOBO framework is modular. The following picture shows the basic layer architecture of OTOBO.
+The OTOBO framework is modular.
+The following picture shows the basic layer architecture of OTOBO.
 
 .. figure:: images/architecture.png
    :alt: OTOBO Architecture
 
    OTOBO Architecture
 
-The OTOBO Generic Interface continues OTOBO modularity. The next picture shows the basic layer architecture of the Generic Interface.
+The OTOBO Generic Interface continues OTOBO's modularity.
+The next picture shows the basic layer architecture of the Generic Interface.
 
 .. figure:: images/giarchitecture.png
    :alt: Generic Interface Architecture
@@ -99,8 +101,10 @@ Files
 Core Modules
 ------------
 
-Core modules are located under ``$OTOBO_HOME/Kernel/System/*``. This layer is for the logical work. Core modules are used to handle system routines like *lock ticket* and *create ticket*. A few main core modules
-are:
+Core modules are located under ``$OTOBO_HOME/Kernel/System/*``.
+This layer is for the logical work.
+Core modules are used to handle system routines like *lock ticket* and *create ticket*.
+A few main core modules are:
 
 -  ``Kernel::System::Config`` to access configuration options.
 -  ``Kernel::System::Log`` to log into OTOBO log back end.
@@ -116,7 +120,8 @@ For more information see the `Documentation Portal <https://doc.otobo.com/doc/>`
 Front End Handle
 ----------------
 
-The interface between the browser, web server and the front end modules. A front end module can be used via the HTTP link.
+The interface between the browser, web server and the front end modules.
+A front end module can be used via the HTTP link.
 
 ::
 
@@ -126,9 +131,12 @@ The interface between the browser, web server and the front end modules. A front
 Front End Modules
 -----------------
 
-Front end modules are located under ``$OTOBO_HOME/Kernel/Modules/*.pm``. There are two public functions in there - ``new()`` and ``run()`` - which are accessed from the front end handle (e.g. ``index.pl``).
+Front end modules are located under ``$OTOBO_HOME/Kernel/Modules/*.pm``.
+There are two public functions in there - ``new()`` and ``run()`` - which are accessed from the front end handle (e.g., ``index.pl``).
 
-``new()`` is used to create a front end module object. The front end handle provides the used front end module with the basic framework objects. These are, for example: 
+``new()`` is used to create a front end module object.
+The front end handle provides the used front end module with the basic framework objects.
+These are, for example:
 
 - ``ParamObject`` to get web form params.
 - ``DBObject`` to use existing database connections.
@@ -150,7 +158,9 @@ The CMD (command line) front end is like the web front end handle and the web fr
 Generic Interface Modules
 -------------------------
 
-Generic interface modules are located under ``$OTOBO_HOME/Kernel/GenericInterface/*``. Generic interface modules are used to handle each part of a web service execution on the system. The main modules for the generic interface are:
+Generic interface modules are located under ``$OTOBO_HOME/Kernel/GenericInterface/*``.
+Generic interface modules are used to handle each part of a web service execution on the system.
+The main modules for the generic interface are:
 
 -  ``Kernel::GenericInterface::Transport`` to interact with remote systems.
 -  ``Kernel::GenericInterface::Mapping`` to transform data into a required format.
@@ -166,7 +176,10 @@ For more information see the `Documentation Portal <https://doc.otobo.com/doc/>`
 Generic Interface Invoker Modules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Generic interface invoker modules are located under ``$OTOBO_HOME/Kernel/GenericInterface/Invoker/*``. Each invoker is contained in a folder called ``Controller``. This approach helps to define a name space not only for internal classes and methods but for filenames too. For example: ``$OTOBO_HOME/Kernel/GenericInterface/Invoker/Test/`` is the controller for all test type invokers.
+Generic interface invoker modules are located under ``$OTOBO_HOME/Kernel/GenericInterface/Invoker/*``.
+Each invoker is contained in a folder called ``Controller``.
+This approach helps to define a name space not only for internal classes and methods but for filenames too.
+For example: ``$OTOBO_HOME/Kernel/GenericInterface/Invoker/Test/`` is the controller for all test type invokers.
 
 Generic interface invoker modules are used as a back end to create requests for remote systems to execute actions.
 
@@ -176,7 +189,8 @@ For more information see the `Documentation Portal <https://doc.otobo.com/doc/>`
 Generic Interface Mapping Modules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Generic interface mapping modules are located under ``$OTOBO_HOME/Kernel/GenericInterface/Mapping/*``. These modules are used to transform data (keys and values) from one format to another.
+Generic interface mapping modules are located under ``$OTOBO_HOME/Kernel/GenericInterface/Mapping/*``.
+These modules are used to transform data (keys and values) from one format to another.
 
 For more information see the `Documentation Portal <https://doc.otobo.com/doc/>`__.
 
@@ -184,7 +198,10 @@ For more information see the `Documentation Portal <https://doc.otobo.com/doc/>`
 Generic Interface Operation Modules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Generic interface operation modules are located under ``$OTOBO_HOME/Kernel/GenericInterface/Operation/*``. Each operation is contained in a folder called ``Controller``. This approach help to define a name space not only for internal classes and methods but for filenames too. For example: ``$OTOBO_HOME/Kernel/GenericInterface/Operation/Ticket/`` is the controller for all ticket type operations.
+Generic interface operation modules are located under ``$OTOBO_HOME/Kernel/GenericInterface/Operation/*``.
+Each operation is contained in a folder called ``Controller``.
+This approach help to define a name space not only for internal classes and methods but for filenames too.
+For example: ``$OTOBO_HOME/Kernel/GenericInterface/Operation/Ticket/`` is the controller for all ticket type operations.
 
 Generic interface operation modules are used as a back end to perform actions requested by a remote system.
 
@@ -194,7 +211,9 @@ For more information see the `Documentation Portal <https://doc.otobo.com/doc/>`
 Generic Interface Transport Modules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Generic interface network transport modules are located under ``$OTOBO_HOME/Kernel/GenericInterface/Transport/*``. Each transport module should be placed in a directory named as the network protocol used. For example: The HTTP SOAP transport module, located in ``$OTOBO_HOME/Kernel/GenericInterface/Transport/HTTP/SOAP.pm``.
+Generic interface network transport modules are located under ``$OTOBO_HOME/Kernel/GenericInterface/Transport/*``.
+Each transport module should be placed in a directory named as the network protocol used.
+For example: The HTTP SOAP transport module, located in ``$OTOBO_HOME/Kernel/GenericInterface/Transport/HTTP/SOAP.pm``.
 
 Generic interface transport modules are used send data to, and receive data from a remote system.
 
@@ -204,7 +223,10 @@ For more information see the `Documentation Portal <https://doc.otobo.com/doc/>`
 Scheduler Task Handler Modules
 ------------------------------
 
-Scheduler task handler modules are located under ``$OTOBO_HOME/Kernel/Scheduler/TaskHandler/*``. These modules are used to perform asynchronous tasks. For example, the ``GenericInterface`` task handler perform generic interface requests to remote systems outside the Apache process. This helps the system to be more responsive, preventing possible performance issues.
+Scheduler task handler modules are located under ``$OTOBO_HOME/Kernel/Scheduler/TaskHandler/*``.
+These modules are used to perform asynchronous tasks.
+For example, the ``GenericInterface`` task handler perform generic interface requests to remote systems outside the Apache process.
+This helps the system to be more responsive, preventing possible performance issues.
 
 For more information see the `Documentation Portal <https://doc.otobo.com/doc/>`__.
 
@@ -214,4 +236,5 @@ Database
 
 The database interface supports different databases.
 
-For the OTOBO data model please refer to the files in your ``/doc`` directory. Alternatively you can look at the data model on `GitHub <https://github.com/RotherOSS/otobo/blob/rel-10_0/development/diagrams/Database/OTOBODatabaseDiagram.png>`__.
+For the OTOBO data model please refer to the files in your ``/doc`` directory.
+Alternatively you can look at the data model on `GitHub <https://github.com/RotherOSS/otobo/blob/rel-10_0/development/diagrams/Database/OTOBODatabaseDiagram.png>`__.

@@ -3,15 +3,18 @@ Package Management
 
 The OPM (OTOBO Package Manager) is a mechanism to distribute software packages for the OTOBO framework via HTTP, FTP or file upload.
 
-For example, the OTOBO project offers OTOBO modules like a calendar, a file manager or web mail in OTOBO packages via online repositories on our FTP servers. The packages can be managed (install, upgrade and uninstall) via the admin interface.
+For example, the OTOBO project offers OTOBO modules like a calendar, a file manager or web mail in OTOBO packages via online repositories on our FTP servers.
+The packages can be managed (install, upgrade and uninstall) via the admin interface.
 
 
 Package Distribution
 --------------------
 
-If you want to create an OPM online repository, just tell the OTOBO framework where the location is by activating the system configuration setting ``Package::RepositoryList`` and adding the new location there. Then you will have a new select option in the package manager.
+If you want to create an OPM online repository, just tell the OTOBO framework where the location is by activating the system configuration setting ``Package::RepositoryList`` and adding the new location there.
+Then you will have a new select option in the package manager.
 
-In your repository, create an index file for your OPM packages. OTOBO just reads this index file and knows what packages are available.
+In your repository, create an index file for your OPM packages.
+OTOBO just reads this index file and knows what packages are available.
 
 ::
 

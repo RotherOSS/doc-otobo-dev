@@ -1,13 +1,15 @@
 Ticket Number Generator Modules
 ===============================
 
-Ticket number generators are used to create distinct identifiers aka ticket number for new tickets. Any method of creating a string of numbers is possible, you should use common sense about the length of the resulting string (guideline: 5-10).
+Ticket number generators are used to create distinct identifiers aka ticket number for new tickets.
+Any method of creating a string of numbers is possible, you should use common sense about the length of the resulting string (guideline: 5-10).
 
-When creating a ticket number, make sure the result is prefixed by the system configuration variable ``SystemID`` in order to enable the detection of ticket numbers on inbound email responses. A ticket number generator module needs the two functions ``TicketCreateNumber()`` and ``GetTNByString()``.
+When creating a ticket number, make sure the result is prefixed by the system configuration variable ``SystemID`` in order to enable the detection of ticket numbers on inbound email responses.
+A ticket number generator module needs the two functions ``TicketCreateNumber()`` and ``GetTNByString()``.
 
 The method ``TicketCreateNumber()`` is called without parameters and returns the new ticket number.
 
-The method ``GetTNByString()`` is called with the param ``String`` which contains the string to be parsed for a ticket number and returns the ticket number if found.
+The method ``GetTNByString()`` is called with the parameter ``String`` which contains the string to be parsed for a ticket number and returns the ticket number if found.
 
 
 Ticket Number Generator Code Example
@@ -30,4 +32,5 @@ Ticket numbers should follow a specific scheme
 
 .. note::
 
-   You should stick to the code of ``GetTNByString()`` as used in existing ticket number generators to prevent problems with ticket number parsing. Also the routine to detect a loop in ``TicketCreateNumber()`` should be kept intact to prevent duplicate ticket numbers.
+   You should stick to the code of ``GetTNByString()`` as used in existing ticket number generators to prevent problems with ticket number parsing.
+   Also the routine to detect a loop in ``TicketCreateNumber()`` should be kept intact to prevent duplicate ticket numbers.

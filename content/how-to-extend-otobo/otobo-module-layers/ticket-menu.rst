@@ -1,22 +1,28 @@
 Ticket Menu Module
 ==================
 
-Ticket menu modules are used to display an additional link in the menu above a ticket. You can write and register your own ticket menu module. There are 4 ticket menus (*Generic*, *Lock*, *Responsible* and *TicketWatcher*) which come with the OTOBO framework. For more information please have a look at the OTOBO admin manual.
+Ticket menu modules are used to display an additional link in the menu above a ticket.
+You can write and register your own ticket menu module.
+There are 4 ticket menus (*Generic*, *Lock*, *Responsible* and *TicketWatcher*) which come with the OTOBO framework.
+For more information please have a look at the OTOBO admin manual.
 
 
 Ticket Menu Module Code Example
 -------------------------------
 
-The ticket menu modules are located under ``Kernel/Output/HTML/TicketMenu*.pm``. Following, there is an example of a ticket menu module. Save it under ``Kernel/Output/HTML/TicketMenuCustom.pm``. You just need 2 functions: ``new()`` and ``Run()``.
+The ticket menu modules are located under ``Kernel/Output/HTML/TicketMenu*.pm``.
+Following, there is an example of a ticket menu module.
+Save it under ``Kernel/Output/HTML/TicketMenuCustom.pm``.
+You just need 2 functions: ``new()`` and ``Run()``.
 
 .. code-block:: Perl
 
    # --
    # Copyright (C) 2019-2021 Rother OSS GmbH, https://otobo.de/
    # --
-   # This software comes with ABSOLUTELY NO WARRANTY. For details, see
-   # the enclosed file COPYING for license information (GPL). If you
-   # did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
+   # This software comes with ABSOLUTELY NO WARRANTY.
+   # For details, see the enclosed file COPYING for license information (GPL).
+   # If you did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
    # --
 
    package Kernel::Output::HTML::TicketMenuCustom;
@@ -114,7 +120,9 @@ The ticket menu modules are located under ``Kernel/Output/HTML/TicketMenu*.pm``.
 Ticket Menu Module Configuration Example
 ----------------------------------------
 
-There is the need to activate your custom ticket menu module. This can be done using the XML configuration below. There may be additional parameters in the config hash for your ticket menu module.
+There is the need to activate your custom ticket menu module.
+This can be done using the XML configuration below.
+There may be additional parameters in the config hash for your ticket menu module.
 
 .. code-block:: XML
 
@@ -139,4 +147,5 @@ Useful ticket menu implementation could be a link to an external tool if paramet
 
 .. note::
 
-   The ticket menu directs to an URL that can be handled. If you want to handle that request via the OTOBO framework, you have to write your own front end module.
+   The ticket menu directs to an URL that can be handled.
+   If you want to handle that request via the OTOBO framework, you have to write your own front end module.

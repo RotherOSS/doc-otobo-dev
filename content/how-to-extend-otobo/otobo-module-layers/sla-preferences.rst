@@ -1,13 +1,22 @@
 SLA Preferences Module
 ======================
 
-There is a DB SLA preferences module which come with the OTOBO framework. It is also possible to develop your own SLA preferences modules. The SLA preferences modules are located under ``Kernel/System/SLA/*.pm``. For more information about their configuration see the admin manual. Following, there is an example of an SLA preferences module. Save it under ``Kernel/System/SLA/PreferencesCustom.pm``. You just need 3 functions: ``new()``, ``SLAPreferencesSet()`` and ``SLAPreferencesGet()``. Make sure the function returns 1.
+There is a DB SLA preferences module which come with the OTOBO framework.
+It is also possible to develop your own SLA preferences modules.
+The SLA preferences modules are located under ``Kernel/System/SLA/*.pm``.
+For more information about their configuration see the admin manual.
+Following, there is an example of an SLA preferences module.
+Save it under ``Kernel/System/SLA/PreferencesCustom.pm``.
+You just need 3 functions: ``new()``, ``SLAPreferencesSet()`` and ``SLAPreferencesGet()``.
+Make sure the function returns 1.
 
 
 SLA Preferences Code Example
 ----------------------------
 
-The interface class is called ``Kernel::System::SLA``. The example SLA preferences may be called ``Kernel::System::SLA::PreferencesCustom``. You can find an example below.
+The interface class is called ``Kernel::System::SLA``.
+The example SLA preferences may be called ``Kernel::System::SLA::PreferencesCustom``.
+You can find an example below.
 
 .. code-block:: Perl
 
@@ -113,7 +122,8 @@ The interface class is called ``Kernel::System::SLA``. The example SLA preferenc
 SLA Preferences Configuration Example
 -------------------------------------
 
-There is the need to activate your custom SLA preferences module. This can be done using the XML configuration below.
+There is the need to activate your custom SLA preferences module.
+This can be done using the XML configuration below.
 
 .. code-block:: XML
 

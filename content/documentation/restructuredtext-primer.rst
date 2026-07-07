@@ -1,9 +1,11 @@
 reStructuredText Primer
 =======================
 
-The documentation format name is **reStructuredText** (one word, this is the correct spelling). This is an easy to read documentation format using plain text and small inline markers.
+The documentation format name is **reStructuredText** (one word, this is the correct spelling).
+This is an easy to read documentation format using plain text and small inline markers.
 
-This short tutorial will guide you through to create or update documentations. To give a full featured tutorial about how to use the *reStructuredText* format is beyond the scope of this document, and many tutorials (e. g. `Sphinx reStructuredText primer <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__ and `reStructuredText user documentation <http://docutils.sourceforge.net/rst.html>`__) and `on-line editors <http://rst.ninjs.org>`__ are available on the internet.
+This short tutorial will guide you through to create or update documentations.
+To give a full featured tutorial about how to use the *reStructuredText* format is beyond the scope of this document, and many tutorials (e. g. `Sphinx reStructuredText primer <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__ and `reStructuredText user documentation <http://docutils.sourceforge.net/rst.html>`__) and `on-line editors <http://rst.ninjs.org>`__ are available on the internet.
 
 The following examples shows the most commonly used documentation elements.
 
@@ -11,7 +13,9 @@ The following examples shows the most commonly used documentation elements.
 Headings
 --------
 
-To use heading in the documentation, you have to underline the titles with special characters. The underline must start from the first letter of the title and end at the last letter of the title. The hierarchy of the special characters are the following: =, -, ~, ^, .
+To use heading in the documentation, you have to underline the titles with special characters.
+The underline must start from the first letter of the title and end at the last letter of the title.
+The hierarchy of the special characters are the following: =, -, ~, ^, .
 
 The following example shows the usage of the headings:
 
@@ -20,43 +24,53 @@ The following example shows the usage of the headings:
    Chapter title
    =============
 
-   This is the heading 1 title. It has numbering like 1.
+   This is the heading 1 title.
+   It has numbering like 1.
 
    Section title
    -------------
 
-   This is the heading 2 title. It has numbering like 1.1.
+   This is the heading 2 title.
+   It has numbering like 1.1.
 
    Subsection title
    ~~~~~~~~~~~~~~~~
 
-   This is the heading 3 title. It has numbering like 1.1.1.
+   This is the heading 3 title.
+   It has numbering like 1.1.1.
 
    Subsubsection title
    ^^^^^^^^^^^^^^^^^^^
 
-   This is the heading 4 title. It has numbering like 1.1.1.1.
+   This is the heading 4 title.
+   It has numbering like 1.1.1.1.
 
    Subsubsubsection title
    ......................
 
-   This is the heading 5 title. It has numbering like 1.1.1.1.1. Please don't use this level of heading.
+   This is the heading 5 title.
+   It has numbering like 1.1.1.1.1.
+   Please don't use this level of heading.
 
 
 Paragraphs
 ----------
 
-For writing paragraphs, you have to start sentences at the beginning of the line. To create a new paragraph, just leave a blank line between the paragraphs. Example:
+For writing paragraphs, you have to start sentences at the beginning of the line.
+To create a new paragraph, just leave a blank line between the paragraphs.
+Example:
 
 .. code-block:: rst
 
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum imperdiet enim. Curabitur
-   nisi diam, lobortis facilisis quam ut, porttitor consequat lectus. Nam elementum, ipsum id
-   feugiat vestibulum, dolor ante dictum quam, ac bibendum ipsum felis in orci.
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+   Sed dictum imperdiet enim.
+   Curabitur nisi diam, lobortis facilisis quam ut, porttitor consequat lectus.
+   Nam elementum, ipsum id feugiat vestibulum, dolor ante dictum quam, ac bibendum ipsum felis in orci.
 
-   Vestibulum maximus egestas orci, eget consequat nibh imperdiet eget. Suspendisse sagittis tempus
-   sapien, sit amet tincidunt tortor efficitur et. Etiam ac lacus sem. Sed ut magna imperdiet,
-   viverra quam vitae, consequat mauris.
+   Vestibulum maximus egestas orci, eget consequat nibh imperdiet eget.
+   Suspendisse sagittis tempus sapien, sit amet tincidunt tortor efficitur et.
+   Etiam ac lacus sem.
+   Sed ut magna imperdiet, viverra quam vitae, consequat mauris.
 
 
 Inline Markups
@@ -74,7 +88,10 @@ If asterisks or grave accents appear in running text which could be confused wit
 Lists
 -----
 
-To create unordered lists, start a line with asterisk (\*) or dash (-). To create ordered list, start a line with numbers or hash mark (#). If you need nested lists, leave a blank line between the list items and use indentation with 3 spaces. Example:
+To create unordered lists, start a line with asterisk (\*) or dash (-).
+To create ordered list, start a line with numbers or hash mark (#).
+If you need nested lists, leave a blank line between the list items and use indentation with 3 spaces.
+Example:
 
 .. code-block:: rst
 
@@ -94,7 +111,7 @@ Nested list example:
 
    - this is
    - a list
-   
+
      - with a nested list
      - and some subitems
 
@@ -104,7 +121,8 @@ Nested list example:
 Literal Blocks
 --------------
 
-Literal blocks are texts that should be displayed as verbatim. To create literal blocks, do the following:
+Literal blocks are texts that should be displayed as verbatim.
+To create literal blocks, do the following:
 
 1. Type 2 colons (::) in a new line.
 2. Leave a blank line.
@@ -150,7 +168,8 @@ If the language of the code snippet is known, you can specify it for syntax high
 Tables
 ------
 
-To create grid tables, you have to draw the table. Example:
+To create grid tables, you have to draw the table.
+Example:
 
 .. code-block:: rst
 
@@ -167,7 +186,8 @@ To create grid tables, you have to draw the table. Example:
 Hyperlinks
 ----------
 
-Hyperlinks can be used inline or referenced. For inline use, encapsulate the text of the link and the URL with grave accents and two trailing underscore characters.
+Hyperlinks can be used inline or referenced.
+For inline use, encapsulate the text of the link and the URL with grave accents and two trailing underscore characters.
 
 .. code-block:: rst
 
@@ -175,7 +195,8 @@ Hyperlinks can be used inline or referenced. For inline use, encapsulate the tex
 
 The link above will display as: `OTOBO website <https://otobo.de>`__.
 
-To create referenced links, you have to separate the text and the link. Example:
+To create referenced links, you have to separate the text and the link.
+Example:
 
 .. code-block:: rst
 

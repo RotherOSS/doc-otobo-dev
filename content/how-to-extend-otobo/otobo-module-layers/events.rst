@@ -3,7 +3,8 @@
 Events
 ======
 
-OTOBO provides an event-driven extension mechanism. **Event modules** (also called *event handlers* or *listeners*) are executed when specific actions occur in the system—such as creating or updating a ticket, sending an article, installing a package, or changing configuration objects.
+OTOBO provides an event-driven extension mechanism.
+**Event modules** (also called *event handlers* or *listeners*) are executed when specific actions occur in the system—such as creating or updating a ticket, sending an article, installing a package, or changing configuration objects.
 
 The event system allows you to add custom behavior without modifying core code: you register one or more modules that listen to certain events, and OTOBO calls those modules whenever the event is triggered.
 
@@ -11,7 +12,7 @@ Important Notes
 ---------------
 
 * **Event availability depends on the installation.**
-  The set of events can vary between systems depending on installed packages (e.g. ITSM, FAQ), custom development, and configuration.
+  The set of events can vary between systems depending on installed packages (e.g., ITSM, FAQ), custom development, and configuration.
 * The lists in this document describe the **events available in the current OTOBO standard**.
   Your system may provide additional events.
 * Event modules must be robust:
@@ -36,7 +37,8 @@ Depending on the event, ``Data`` may contain ticket data, article data, object i
 Where Event Modules Live
 ------------------------
 
-Event modules are usually grouped by object type and package. A common convention is to place modules in directories named ``Event`` below the relevant subsystem.
+Event modules are usually grouped by object type and package.
+A common convention is to place modules in directories named ``Event`` below the relevant subsystem.
 
 For example, ticket event modules are commonly located in::
 
@@ -47,7 +49,8 @@ Other packages and object types may follow similar conventions depending on impl
 How Event Modules Are Configured
 --------------------------------
 
-Event modules are activated and ordered through system configuration (SysConfig). The naming convention depends on the subsystem.
+Event modules are activated and ordered through system configuration (SysConfig).
+The naming convention depends on the subsystem.
 
 For tickets, a common convention is settings starting with::
 
@@ -83,8 +86,8 @@ Ticket Event Module Use Case Examples
 
 Unlock a ticket after a move action
    This standard feature is implemented with the ticket event module
-   ``Kernel::System::Ticket::Event::ForceUnlock``. When this feature is not wanted,
-   it can be turned off by unsetting the system configuration entry
+   ``Kernel::System::Ticket::Event::ForceUnlock``.
+   When this feature is not wanted, it can be turned off by unsetting the system configuration entry
    ``Ticket::EventModulePost###910-ForceUnlockOnMove``.
 
 Perform extra cleanup action when a ticket is deleted
@@ -95,7 +98,7 @@ Perform extra cleanup action when a ticket is deleted
 
 Send data to an external service when a ticket is created
    A ticket event module listening to ``TicketCreate`` can send notifications
-   or payloads to external services (e.g. webhooks, chat systems, monitoring).
+   or payloads to external services (e.g., webhooks, chat systems, monitoring).
 
 Events in the OTOBO Standard
 ============================
@@ -246,18 +249,18 @@ exist and which are actually triggered.
 Common approaches:
 
 * **Search the source code** for event trigger calls (for example, calls into an event handler).
-* **Review SysConfig** entries that register event modules (e.g. settings containing ``EventModule``).
+* **Review SysConfig** entries that register event modules (e.g., settings containing ``EventModule``).
 * **Inspect installed packages** for additional event providers and modules.
 * **Use logging** in your own module to confirm that a given event is fired in your environment.
 
-  .. note::
+.. note::
 
-        The following command is a starting point to find event names in the source code.
-        It may need adjustments based on your specific installation and event naming conventions.
-    
-        .. code-block:: bash
-         
-            rg -n --hidden --follow "\bEvent\s*=>\s*'[^']+'" Kernel Custom 2>/dev/null | sed -E "s/.*\bEvent\s*=>\s*'([^']+)'.*/\1/" | sort -u
+   The following command is a starting point to find event names in the source code.
+   It may need adjustments based on your specific installation and event naming conventions.
+
+   .. code-block:: bash
+
+      rg -n --hidden --follow "\bEvent\s*=>\s*'[^']+'" Kernel Custom 2>/dev/null | sed -E "s/.*\bEvent\s*=>\s*'([^']+)'.*/\1/" | sort -u
 
 Best Practices for Event Modules
 ================================

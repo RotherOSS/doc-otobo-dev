@@ -1,13 +1,17 @@
 Writing A New OTOBO Front End Module
 ====================================
 
-In this chapter, the writing of a new OTOBO module is illustrated on the basis of a simple small program. Necessary prerequisite is an OTOBO development environment as specified in the chapter of the same name.
+In this chapter, the writing of a new OTOBO module is illustrated on the basis of a simple small program.
+Necessary prerequisite is an OTOBO development environment as specified in the chapter of the same name.
 
 
 What we want to write
 ---------------------
 
-We want to write a little OTOBO module that displays the text 'Hello World' when called up. First of all we must build the directory ``/Hello World`` for the module in the developer directory. In this directory, all directories existent in OTOBO can be created. Each module should at least contain the following directories:
+We want to write a little OTOBO module that displays the text 'Hello World' when called up.
+First of all we must build the directory ``/Hello World`` for the module in the developer directory.
+In this directory, all directories existent in OTOBO can be created.
+Each module should at least contain the following directories:
 
 ::
 
@@ -23,7 +27,10 @@ We want to write a little OTOBO module that displays the text 'Hello World' when
 Default Config File
 -------------------
 
-The creation of a module registration facilitates the display of the new module in OTOBO. Therefore we create a file ``/Kernel/Config/Files/XML/HelloWorld.xml``. In this file, we create a new config element. The impact of the various settings is described in the chapter :doc:`../how-it-works/config-mechanism`.
+The creation of a module registration facilitates the display of the new module in OTOBO.
+Therefore we create a file ``/Kernel/Config/Files/XML/HelloWorld.xml``.
+In this file, we create a new config element.
+The impact of the various settings is described in the chapter :doc:`../how-it-works/config-mechanism`.
 
 .. code-block:: XML
 
@@ -107,16 +114,19 @@ The creation of a module registration facilitates the display of the new module 
 Front End Module
 ----------------
 
-After creating the links and executing the system configuration, a new module with the name 'HelloWorld' is displayed. When calling it up, an error message is displayed as OTOBO cannot find the matching front end module yet. This is the next thing to be created. To do so, we create the following file:
+After creating the links and executing the system configuration, a new module with the name 'HelloWorld' is displayed.
+When calling it up, an error message is displayed as OTOBO cannot find the matching front end module yet.
+This is the next thing to be created.
+To do so, we create the following file:
 
 .. code-block:: Perl
 
    # --
    # Copyright (C) (year) (name of author) (email of author)
    # --
-   # This software comes with ABSOLUTELY NO WARRANTY. For details, see
-   # the enclosed file COPYING for license information (GPL). If you
-   # did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
+   # This software comes with ABSOLUTELY NO WARRANTY.
+   # For details, see the enclosed file COPYING for license information (GPL).
+   # If you did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
    # --
 
    package Kernel::Modules::AgentHelloWorld;
@@ -171,9 +181,9 @@ Next, we create the file for the core module ``/HelloWorld/Kernel/System/HelloWo
    # --
    # Copyright (C) (year) (name of author) (email of author)
    # --
-   # This software comes with ABSOLUTELY NO WARRANTY. For details, see
-   # the enclosed file COPYING for license information (GPL). If you
-   # did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
+   # This software comes with ABSOLUTELY NO WARRANTY.
+   # For details, see the enclosed file COPYING for license information (GPL).
+   # If you did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
    # --
 
    package Kernel::System::HelloWorld;
@@ -196,7 +206,8 @@ Next, we create the file for the core module ``/HelloWorld/Kernel/System/HelloWo
 
    =head2 new()
 
-   Create an object. Do not use it directly, instead use:
+   Create an object.
+   Do not use it directly, instead use:
 
        my $HelloWorldObject = $Kernel::OM->Get('Kernel::System::HelloWorld');
 
@@ -262,16 +273,17 @@ Next, we create the file for the core module ``/HelloWorld/Kernel/System/HelloWo
 Template File
 -------------
 
-The last thing missing before the new module can run is the relevant HTML template. Thus, we create the following file:
+The last thing missing before the new module can run is the relevant HTML template.
+Thus, we create the following file:
 
 .. code-block:: HTML
 
    # --
    # Copyright (C) (year) (name of author) (email of author)
    # --
-   # This software comes with ABSOLUTELY NO WARRANTY. For details, see
-   # the enclosed file COPYING for license information (GPL). If you
-   # did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
+   # This software comes with ABSOLUTELY NO WARRANTY.
+   # For details, see the enclosed file COPYING for license information (GPL).
+   # If you did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
    # --
    <h1>[% Translate("Overview") | html %]: [% Translate("HelloWorld") %]</h1>
    <p>
@@ -284,7 +296,8 @@ The module is working now and displays the text *Hello World* when called.
 Language File
 -------------
 
-If the text *Hello World!* is to be translated into for instance German, you can create a translation file for this language in ``HelloWorld/Kernel/Language/de_AgentHelloWorld.pm``. Example:
+If the text *Hello World!* is to be translated into for instance German, you can create a translation file for this language in ``HelloWorld/Kernel/Language/de_AgentHelloWorld.pm``.
+Example:
 
 .. code-block:: Perl
 
@@ -306,4 +319,6 @@ If the text *Hello World!* is to be translated into for instance German, you can
 Summary
 -------
 
-The example given above shows that it is not too difficult to write a new module for OTOBO. It is important, though, to make sure that the module and file name are unique and thus do not interfere with the framework or other expansion modules. When a module is finished, an OPM package must be generated from it (see chapter :doc:`../how-to-publish-otobo-extensions/package-building`).
+The example given above shows that it is not too difficult to write a new module for OTOBO.
+It is important, though, to make sure that the module and file name are unique and thus do not interfere with the framework or other expansion modules.
+When a module is finished, an OPM package must be generated from it (see chapter :doc:`../how-to-publish-otobo-extensions/package-building`).

@@ -9,9 +9,13 @@ This section lists changes that you need to examine when porting your package fr
 Front End Messages
 ------------------
 
-In an effort to improve consistency and enforce new UX guidelines, a new and common front end messages API has been introduced in OTOBO 8. Developers should strive to use only this way of informing users of application changes. A front end component has been created for this feature, and it's included by default in every application.
+In an effort to improve consistency and enforce new UX guidelines, a new and common front end messages API has been introduced in OTOBO 8.
+Developers should strive to use only this way of informing users of application changes.
+A front end component has been created for this feature, and it's included by default in every application.
 
-The API has been reused from a previous integration, albeit with some changes. By emitting an event on the global event bus it is still possible to trigger display of a message on the user screen. For example, in order to show a toast style message, you can just emit an event like so:
+The API has been reused from a previous integration, albeit with some changes.
+By emitting an event on the global event bus it is still possible to trigger display of a message on the user screen.
+For example, in order to show a toast style message, you can just emit an event like so:
 
 .. code-block:: js
 
@@ -24,7 +28,8 @@ The API has been reused from a previous integration, albeit with some changes. B
        variant: 'warning',
    });
 
-If your use case is to prevent user from interacting with the app until they make a choice or acknowledge a message, you can trigger display of a blocking modal message. The interface is similar, please note the different name of the event:
+If your use case is to prevent user from interacting with the app until they make a choice or acknowledge a message, you can trigger display of a blocking modal message.
+The interface is similar, please note the different name of the event:
 
 .. code-block:: js
 
@@ -43,7 +48,8 @@ Both message styles provide numerous configuration options, so make sure to cons
 Renamed Message Events
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Front end message component improvements meant that some event names had to be renamed, it will be expected from you to port existing packages that use them to conform to the new format. Please find a table below containing all affected events.
+Front end message component improvements meant that some event names had to be renamed, it will be expected from you to port existing packages that use them to conform to the new format.
+Please find a table below containing all affected events.
 
 +-------------------------+-------------------------+
 | Old name                | New name                |
@@ -57,7 +63,9 @@ Front end message component improvements meant that some event names had to be r
 Styling Improvements
 --------------------
 
-In OTOBO 7, new front end stack has been introduced. However, since only one major front end application was shipped (for the external interface), there was no need to make sure that components living in the shared namespace have support for different styling. With OTOBO 8, this was bound to change, and now OTOBO supports app-specific styling in components.
+In OTOBO 7, new front end stack has been introduced.
+However, since only one major front end application was shipped (for the external interface), there was no need to make sure that components living in the shared namespace have support for different styling.
+With OTOBO 8, this was bound to change, and now OTOBO supports app-specific styling in components.
 
 
 Application Specific Styling in Shared Components
@@ -79,19 +87,25 @@ Usage is quite simple: whenever you need to apply an app-specific style, wrap yo
        }
    }
 
-Usage of the mixin guarantees your block will only be loaded where appropriate (in this example in the external interface app). In the block you are free to use application specific global variables and functions, without any restrictions. Everything that is available within the app will be allowed.
+Usage of the mixin guarantees your block will only be loaded where appropriate (in this example in the external interface app).
+In the block you are free to use application specific global variables and functions, without any restrictions.
+Everything that is available within the app will be allowed.
 
 .. note::
+   Design system will load appropriate style depending on current choice.
+   For example, there will be a drop-down menu shown above the component example, allowing the user to switch the styles.
+   All you have to do is make sure your component lives in the shared namespace and implements the mixin above, as needed.
 
-   Design system will load appropriate style depending on current choice. For example, there will be a drop-down menu shown above the component example, allowing the user to switch the styles. All you have to do is make sure your component lives in the shared namespace and implements the mixin above, as needed.
-
-In order to provide this mechanism, it was required to refactor all the styles to conform to the BEM specification. This now applies to any variable names, mixins, functions, etc. By looking at their names, now it will be perfectly clear where they are coming from, and the chance for any possible collisions is decreased to the minimum.
+In order to provide this mechanism, it was required to refactor all the styles to conform to the BEM specification.
+This now applies to any variable names, mixins, functions, etc.
+By looking at their names, now it will be perfectly clear where they are coming from, and the chance for any possible collisions is decreased to the minimum.
 
 
 Renamed SCSS Literals
 ~~~~~~~~~~~~~~~~~~~~~
 
-Since some SCSS literals had to be renamed, it will be expected from you to port existing packages that use them to conform to the new format. Please find a table below containing all affected literals.
+Since some SCSS literals had to be renamed, it will be expected from you to port existing packages that use them to conform to the new format.
+Please find a table below containing all affected literals.
 
 +-----------+--------------+------------------------------+---------------------------------------------+
 | Namespace | Origin       | Old name                     | New name                                    |
@@ -193,7 +207,8 @@ Since some SCSS literals had to be renamed, it will be expected from you to port
 Encode API Changed
 ------------------
 
-The legacy method ``Convert2CharsetInternal()`` was dropped. Please replace any usages of this with ``Convert()`` and a ``To => 'utf-8'`` parameter like this:
+The legacy method ``Convert2CharsetInternal()`` was dropped.
+Please replace any usages of this with ``Convert()`` and a ``To => 'utf-8'`` parameter like this:
 
 .. code-block:: Perl
 
@@ -218,7 +233,9 @@ Replace this by:
 LinkObject API Changed
 ----------------------
 
-The method ``LinkAdd()`` has a slightly changed return value. Instead of a boolean return value it returns now the ``LinkID`` of the added link. You need to save the ``LinkID`` in order to delete a link later.
+The method ``LinkAdd()`` has a slightly changed return value.
+Instead of a boolean return value it returns now the ``LinkID`` of the added link.
+You need to save the ``LinkID`` in order to delete a link later.
 
 .. code-block:: Perl
 
@@ -246,7 +263,9 @@ Replace this by:
        UserID       => 1,
    );
 
-The method ``LinkDelete()`` has a changed signature and return value. Instead of a boolean return value it returns now the ``LinkData`` as a hash. The parameter list now only requires the ``LinkID`` and the ``UserID``.
+The method ``LinkDelete()`` has a changed signature and return value.
+Instead of a boolean return value it returns now the ``LinkData`` as a hash.
+The parameter list now only requires the ``LinkID`` and the ``UserID``.
 
 .. code-block:: Perl
 
@@ -322,7 +341,9 @@ Replace this by:
    # Unless already used in module.
    no Moose;
 
-In order to ensure the correct behavior it is imperative that all possible events for an object type are known via the system configuration (e.g. ``Events###Ticket`` for all ticket events). **This configuration is now required**. Exceptions for dynamically created events like those of dynamic fields have to be added to ``Kernel::System::Event::Handler::_EventListBuild``.
+In order to ensure the correct behavior it is imperative that all possible events for an object type are known via the system configuration (e.g., ``Events###Ticket`` for all ticket events).
+**This configuration is now required**.
+Exceptions for dynamically created events like those of dynamic fields have to be added to ``Kernel::System::Event::Handler::_EventListBuild``.
 
 A configuration like this:
 
@@ -355,7 +376,8 @@ Should be modified and amended as necessary, like this:
        </Value>
    </Setting>
 
-As the generic interface provides event filters for every object type, it is now **mandatory** to provide a module for every object type which retrieves object data for the filter. These modules reside in ``Kernel/GenericInterface/Event/ObjectType``.
+As the generic interface provides event filters for every object type, it is now **mandatory** to provide a module for every object type which retrieves object data for the filter.
+These modules reside in ``Kernel/GenericInterface/Event/ObjectType``.
 
 If an event list is required in your code and you have an occurrence of this:
 

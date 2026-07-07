@@ -77,7 +77,7 @@ This is common header that can be found in common OTOBO modules. The class/packa
        }
 
        return $Self;
-   }        
+   }
 
 The constructor ``new`` creates a new instance of the class. According to the coding guidelines only objects of other classes not handled by the object manager that are needed in this module have to be created in ``new``.
 
