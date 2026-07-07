@@ -6,6 +6,33 @@
 OTOBO Development Tutorial
 ===========================
 
+This is the OTOBO Development Tutorial, which provides guidance for developers who want to extend and customize OTOBO.
+It covers topics such as the architecture of OTOBO, how to create and publish extensions, and how to contribute to the OTOBO project.
+
+.. warning::
+   This documentation is for the **11.1 beta** version of OTOBO.
+   It may contain incomplete or inaccurate information, and some features may not be fully functional.
+   Please use this documentation with caution and report any issues to the OTOBO development team.
+   You may find the **documentation for the latest stable release** at https://doc.otobo.org/manual/installation/11.0/en/content/index.html.
+
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Contents
+
+   get-started
+   how-it-works
+   how-to-extend-otobo
+   how-to-publish-otobo-extensions
+   documentation
+   contributing
+   additional-resources
+   history
+
+
+License
+=======
+
 This work is copyrighted by OTRS AG (https://otrs.com),
 Zimmersmühlenweg 11, 61440 Oberursel, Germany.
 
@@ -31,16 +58,4 @@ Oberwalting 31, 94339 Leiblfing, Germany.
 
 Authors: OTRS AG (original version), Rother OSS GmbH (https://otobo.de).
 
-.. toctree::
-   :maxdepth: 3
-   :caption: Contents
-
-   get-started
-   how-it-works
-   how-to-extend-otobo
-   how-to-publish-otobo-extensions
-   documentation
-   contributing
-   additional-resources
-   history
 
