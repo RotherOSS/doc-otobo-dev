@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 08:22+0000\n"
+"POT-Creation-Date: 2026-09-29 08:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -7645,7 +7645,7 @@ msgid "``<Framework>`` \\*"
 msgstr ""
 
 #: ../content/how-to-publish-otobo-extensions/package-building.rst:29
-msgid "The targeted framework version (7.0.x means e.g. 7.0.1 or 7.0.2)."
+msgid "The targeted framework version (11.1.x means e.g. 11.1.1 or 11.1.2)."
 msgstr ""
 
 #: ../content/how-to-publish-otobo-extensions/package-building.rst:35
@@ -7701,7 +7701,7 @@ msgid "The possible actions for the package after installation. If one of these 
 msgstr ""
 
 #: ../content/how-to-publish-otobo-extensions/package-building.rst:90
-msgid "A special package action is ``PackageAllowDirectUpdate``. Only if it is defined on the package and set to true, a package can be upgraded from a lower major version (earlier than the last one) to the latest version (e.g., a package for OTOBO 5 updated to OTOBO 7)."
+msgid "A special package action is ``PackageAllowDirectUpdate``. Only if it is defined on the package and set to true, a package can be upgraded from a lower major version (earlier than the last one) to the latest version (e.g., a package for OTOBO 10.1 updated to OTOBO 11.1)."
 msgstr ""
 
 #: ../content/how-to-publish-otobo-extensions/package-building.rst:102
