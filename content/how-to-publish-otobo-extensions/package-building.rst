@@ -52,7 +52,7 @@ It contains meta data, a file list and database options.
 
    .. code-block:: XML
 
-      <URL>https://otobo.com/</URL>
+      <URL>https://otobo.io/</URL>
 
 ``<License>`` \*
    The license of the package.
@@ -374,10 +374,10 @@ This is an example spec file looks with some of the above tags.
    <?xml version="1.0" encoding="utf-8" ?>
    <otobo_package version="1.0">
        <Name>Calendar</Name>
-       <Version>10.0.1</Version>
-       <Framework>10.0.x</Framework>
+       <Version>11.1.1</Version>
+       <Framework>11.1.x</Framework>
        <Vendor>Rother OSS GmbH</Vendor>
-       <URL>https://otobo.com/</URL>
+       <URL>https://otobo.io/</URL>
        <License>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</License>
        <ChangeLog Version="1.1.2" Date="2018-11-15 18:45:21">Added some feature.</ChangeLog>
        <ChangeLog Version="1.1.1" Date="2018-11-15 16:17:51">New package.</ChangeLog>
