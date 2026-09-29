@@ -26,19 +26,19 @@ It contains meta data, a file list and database options.
       <Version>1.2.3</Version>
 
 ``<Framework>`` \*
-   The targeted framework version (7.0.x means e.g. 7.0.1 or 7.0.2).
+   The targeted framework version (11.1.x means e.g. 11.1.1 or 11.1.2).
 
    .. code-block:: XML
 
-      <Framework>7.0.x</Framework>
+      <Framework>11.1.x</Framework>
 
    Can also be used several times.
 
    .. code-block:: XML
 
-      <Framework>5.0.x</Framework>
-      <Framework>6.0.x</Framework>
-      <Framework>7.0.x</Framework>
+      <Framework>10.1.x</Framework>
+      <Framework>11.0.x</Framework>
+      <Framework>11.1.x</Framework>
 
 ``<Vendor>`` \*
    The package vendor.
@@ -88,7 +88,7 @@ Package Actions
       <PackageIsRemovable>1</PackageIsRemovable>
 
    A special package action is ``PackageAllowDirectUpdate``.
-   Only if it is defined on the package and set to true, a package can be upgraded from a lower major version (earlier than the last one) to the latest version (e.g., a package for OTOBO 5 updated to OTOBO 7).
+   Only if it is defined on the package and set to true, a package can be upgraded from a lower major version (earlier than the last one) to the latest version (e.g., a package for OTOBO 10.1 updated to OTOBO 11.1).
 
    .. code-block:: XML
 
